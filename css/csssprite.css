@@ -1,0 +1,76 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+.row::after {
+	content: "";
+	display: block;
+	clear: both;
+
+}
+
+body {
+    background-color: #00bff3;
+}
+
+/*pagina responsável pelo scroll*/
+#page {
+	width: 100%;
+	height: auto;
+	left: 0;
+	top: 0;
+}
+
+#container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border:5px solid red;
+	background-color: transparent;
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx camada horizontal piso*/
+
+
+.camada-horizontal {
+	width:20000px;
+	height: 100%;
+	border:4px solid green;
+	position: absolute;
+	overflow: hidden;
+
+}
+#camada-horizontal-2 {
+}
+#camada-horizontal-1 {
+}
+
+
+[class*="terra-grama"]{
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	left: 0;
+	top:50%;
+}
+
+
+.terra {
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/ground.png);
+	position: absolute;
+}
+
+
+.grama {
+	width: 100%;
+	height: 50px;
+	background-image: url(../img/grass.png);
+	position: absolute;
+}

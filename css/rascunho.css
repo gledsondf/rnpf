@@ -1,0 +1,145 @@
+
+
+#camada-horizontal {
+	width:20000px;
+	height: 100%;
+	border:4px solid green;
+	position: absolute;
+	overflow: hidden;
+
+}
+
+#nuvem {
+	position: absolute;
+	width: 20000px;
+	height: 100%;
+	background:#00bff3;
+
+}
+
+.cloud {
+	width: 180px;
+	height: 120px;
+	background: url("../img/cloud.png");
+	position: absolute;
+}
+
+#cloud-5 {
+	left: 3%;
+	top: 20%;
+}
+
+#cloud-6 {
+	left: 8%;
+	top: 40%;
+}
+
+#cloud-7 {
+	left: 10%;
+	top:30%;
+}
+
+#cloud-8 {
+	left: 5%;
+	top: 10%;
+}
+
+#cloud-9 {
+	left: 15%;
+	top: 15%;
+}
+
+
+
+#terra-grama2{
+	width: 100%;
+	height: 30%;
+	position: absolute;
+	left: 3000px;
+	top:70%;
+	border:5px solid yellow;
+}
+
+.terra2 {
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/ground.png);
+	position: absolute;
+	border:1px solid red;
+}
+
+.terra {
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/ground.png);
+	position: absolute;
+	border:1px solid red;
+}
+
+
+.grama {
+	width: 100%;
+	height: 50px;
+	background-image: url(../img/grass.png);
+	position: absolute;
+	border:1px solid blue;
+}
+
+
+	.severino {
+		width: 227px;
+		height: 340px;
+		background: url('severino.png');
+		position: relative;
+		left: 20%;
+		overflow: hidden;
+
+	}
+
+
+	.severino:hover {
+		background-position: -230px;
+		animation-name:play;
+		animation-duration:1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: steps(4);
+	}	
+
+	@keyframes play {
+		100% {
+			background-position: -1142px;
+		}
+	}
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+
+
+
+
+		@keyframes terra{
+			100% {
+				left: -850px;
+			}
+		}
+
+
+.monte {
+	width: 200px;
+	height: 100px;
+	background:red;
+}
+
+#robby {
+	position: absolute;
+	left:30%;
+	bottom:200px;
+	width: 200px;
+	height: 175px;
+	border:1px solid red;
+    background-image: url(../img/robby-slides.png);
+
+}
