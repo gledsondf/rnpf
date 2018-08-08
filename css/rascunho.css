@@ -133,13 +133,3 @@
 	background:red;
 }
 
-#robby {
-	position: absolute;
-	left:30%;
-	bottom:200px;
-	width: 200px;
-	height: 175px;
-	border:1px solid red;
-    background-image: url(../img/robby-slides.png);
-
-}

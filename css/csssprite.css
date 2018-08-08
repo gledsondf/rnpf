@@ -74,3 +74,16 @@ body {
 	background-image: url(../img/grass.png);
 	position: absolute;
 }
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx personagem*/
+
+#juca {
+	position: absolute;
+	left:30%;
+	width: 200px;
+	height: 175px;
+	border:1px solid red;
+    background-image: url(../img/robby-slides.png);
+
+}
