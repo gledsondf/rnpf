@@ -30,8 +30,8 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	border:5px solid red;
-	background-color: transparent;
+/*	border:5px solid red;
+*/	background-color: transparent;
 }
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx camada horizontal piso*/
@@ -40,7 +40,6 @@ body {
 .camada-horizontal {
 	width:20000px;
 	height: 100%;
-	border:4px solid green;
 	position: absolute;
 	overflow: hidden;
 
