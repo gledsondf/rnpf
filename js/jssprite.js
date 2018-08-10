@@ -65,36 +65,52 @@ function animeScroll(){
 //detectar colisão nível
 
 		var $alvoNivel = $(".nivel");
-		var $alvoNivel2 = $(".nivel2");
-
+/*		var $alvoNivel2 = $(".nivel2");
+*/
 		var $posicaoJuca = $("#juca").offset().left+250;
 
 
+		var cont=0;
 
-		$alvoNivel.each(function(){
-			
+		$alvoNivel.each(function(index,value){
+
+			var item2 = $alvoNivel[0];
+			var item1 = $alvoNivel[1];
+			var item0 = $alvoNivel[2];
+
+			var item00 = $(item0).css("height");
+			var item11 = $(item1).css("height");
+			var item22 = $(item2).css("height");
+			//console.log(index+" : "+ $(this).attr("id"));
 			var $posicaoItem = $(this).offset().left;
+			var $posicaoBottom = $(this).css("height");
+			var $posicaoBottomJucaInicial = $terraGramaHn1+"px";
+			var $posicaoBottomJ= $("#juca").css("bottom");
+			if ($posicaoJuca > $posicaoItem) {
 
-			var $pB = $(this).css("height");
+				cont +=1;
+			}else{
 
-			var $posicaoBottom = apenasNumeros($pB);
+/*				cont =0;
+*/			}
 
-			if ($posicaoJuca < $posicaoItem) {
+console.log(cont);
 
-				$("#juca").stop().animate({bottom:$terraGramaHn1},200, function(){});
+				if( cont==1){
+				console.log(cont);
+					$("#juca").stop().animate({bottom:item00},100, function(){});
+				}if(cont==2) {
 
+					$("#juca").stop().animate({bottom:item11},100, function(){});
 
-			}else {
+				}if(cont==3) {
 
-				$("#juca").stop().animate({bottom:$posicaoBottom*1.6+"px"},200).stop().animate({bottom:$posicaoBottom},function(){
+					$("#juca").stop().animate({bottom:item22},100, function(){});
 
-										$( this ).after().animate().stop();
-				});
-			}
-
+				}			
 		});
-
-
+			//return console.log("parou");
+/*
 		$alvoNivel2.each(function(){
 			
 			var $posicaoItem = $(this).offset().left;
@@ -108,7 +124,7 @@ function animeScroll(){
 
 				$("#juca").stop().animate({bottom:$posicaoBottom*1.6},200, function(){});
 			}
-		});
+		});*/
 
 
 

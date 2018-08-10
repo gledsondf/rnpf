@@ -85,4 +85,23 @@ body {
 	border:1px solid red;
     background-image: url(../img/robby-slides.png);
 
+/*}
+
+.pular {
+		animation-name:pulo;
+		animation-duration:1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: steps(4);
 }
+@keyframes pulo {
+
+		0%{
+				bottom:;
+		}
+		50% {
+
+		}
+		100% {
+
+		}
+}*/
