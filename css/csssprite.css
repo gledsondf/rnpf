@@ -84,6 +84,30 @@ body {
 	height: 175px;
 	border:1px solid red;
     background-image: url(../img/robby-slides.png);
+    z-index: 2000;
+}
+
+
+
+	#juca.corre {
+		background-position-x: -200px;
+		animation-name:play;
+		animation-duration:1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: steps(2);
+	}	
+
+	@keyframes play {
+		100% {
+			background-position-x: -600px;
+		}
+	}
+
+
+
+
+
+
 
 /*}
 
