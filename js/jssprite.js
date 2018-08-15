@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+if (
+  document.fullscreenElement || /* Standard syntax */
+  document.webkitFullscreenElement || /* Chrome, Safari and Opera syntax */
+  document.mozFullScreenElement ||/* Firefox syntax */
+  document.msFullscreenElement /* IE/Edge syntax */
+) {
+console.log("gledson");
+
+}
 //pega a largura e altura da página
 
 var $tamanhoTelaH = $(window).height();
@@ -31,11 +40,13 @@ $(".terra-grama3").css("left",$tamanhoTelaW*2+"px");
 
 
 
-
+comecaJuca();
 //ajusta o personagem ao piso
-
+function comecaJuca() {
 $("#juca").css("bottom",$terraGramaHn1);
-$("#juca").addClass("parar");
+
+
+}
 
 
 function animeScroll(){
@@ -47,7 +58,7 @@ $('#page').css('height',$pisoTamanho);
 var $posicaoScrollTopo = $(document).scrollTop();
 $("#camada-horizontal-1").css('left',"-"+$posicaoScrollTopo+'px');
 
-console.log($posicaoScrollTopo);
+//console.log($posicaoScrollTopo);
 //retirar o px do valor pego
 
 function apenasNumeros(string) 
@@ -66,6 +77,8 @@ var $posicaoJuca = $("#juca").offset().left+250;
 
 var cont = 0;
 
+
+//pegar obstaculos
 
 $alvoNivel.each(function(index,value){
 	var $total = $alvoNivel.length;
@@ -93,9 +106,56 @@ $alvoNivel.each(function(index,value){
 
 }
 
+var countCorre = 0;
+
+function correr(valor){
+if(countCorre<=13){
+	
+	var $n = -200
+console.log(valor);
+	if (valor) {
+		$("#juca").css("background-image", "url(img/juca4.png)");
+		$("#juca").css("backgroundPositionX",""+$n*countCorre+"px");
+		
+	}else {
+		$("#juca").css("background-image", "url(img/juca4v.png)");
+		$("#juca").css("backgroundPositionX",""+$n*countCorre+"px");
+	}
+
+	countCorre+=1;
+if (countCorre==13) {
+	countCorre=0;
+}
+	console.log(countCorre);
+	//return count;
+
+}
+
+}
+//pega a ultima posição do scroll
+ var $ultimaPosicaoScroll
+
 animeScroll();
 $(document).scroll(function(){
+	//pega posição do scroll
+	var $posicaoScrollTopo = $(document).scrollTop();
+	if ($posicaoScrollTopo > $ultimaPosicaoScroll) {
+		//baixo scroll
+		correr(true);
+	}else {
+		//cima scroll
+		correr(false);
+	}
+	// guarda a ultima posição
+	$ultimaPosicaoScroll = $posicaoScrollTopo;
+
+
+
 	animeScroll();
+console.log($posicaoScrollTopo);
+
+
+
 
 });
 
