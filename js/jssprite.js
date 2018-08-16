@@ -11,7 +11,7 @@ console.log("gledson");
 }
 //pega a largura e altura da página
 
-var $tamanhoTelaH = $(window).height();
+var $tamanhoTelaH = $(window).height()+150;
 var $tamanhoTelaW = $(window).width();
 
 
@@ -20,9 +20,9 @@ $(".tela-h").css("height",$tamanhoTelaH+"px");
 
 
 //responsável pelo posicionamento do terreno nível 1
-var $terraGramaHn1 = $tamanhoTelaH*0.1;
-var $terraGramaHn2 = $tamanhoTelaH*0.3;
-var $terraGramaHn3 = $tamanhoTelaH*0.5;
+var $terraGramaHn1 = $tamanhoTelaH*0.2;
+var $terraGramaHn2 = $tamanhoTelaH*0.4;
+var $terraGramaHn3 = $tamanhoTelaH*0.6;
 
 $(".terra-grama1").css("height",$terraGramaHn1+"px");
 $(".terra-grama1").css("width",$tamanhoTelaW+"px");
@@ -38,6 +38,9 @@ $(".terra-grama3").css("width",$tamanhoTelaW+"px");
 $(".terra-grama3").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
 $(".terra-grama3").css("left",$tamanhoTelaW*2+"px");
 
+
+$("#aviao").css("left",$tamanhoTelaW*2.9+"px");
+$("#aviao").css("top",$terraGramaHn3+"px");
 
 
 comecaJuca();
@@ -112,10 +115,9 @@ function correr(valor){
 if(countCorre<=13){
 	
 	var $n = -200
-console.log(valor);
 	if (valor) {
 		$("#juca").css("background-image", "url(img/juca4.png)");
-		$("#juca").css("backgroundPositionX",""+$n*countCorre+"px");
+		setInterval(function(){$("#juca").css("backgroundPositionX",""+$n*countCorre+"px")},200);
 		
 	}else {
 		$("#juca").css("background-image", "url(img/juca4v.png)");
@@ -126,7 +128,6 @@ console.log(valor);
 if (countCorre==13) {
 	countCorre=0;
 }
-	console.log(countCorre);
 	//return count;
 
 }
@@ -152,7 +153,9 @@ $(document).scroll(function(){
 
 
 	animeScroll();
-console.log($posicaoScrollTopo);
+
+	var $novo = $posicaoScrollTopo*1/10;
+console.log($posicaoScrollTopo +"= novo ="+$novo);
 
 
 
