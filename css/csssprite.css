@@ -38,7 +38,7 @@ body {
 
 
 .camada-horizontal {
-	width:20000px;
+	width:40000px;
 	height: 100%;
 	position: absolute;
 	overflow: hidden;
@@ -81,6 +81,52 @@ body {
 	position: absolute;
 
 }
+#aviao-nivel1b {
+	width: 200px;
+	height: 175px;
+	left: 1000px;
+	border:1px solid red;
+	background-image: url(../img/aviao.png);
+	position: absolute;
+
+}
+
+#base {
+	width: 600px;
+	height: 300px;
+	left: 4000px;
+	border:1px solid red;
+	/*background-image: url(../img/aviao.png);*/
+	background:yellow;
+	position: absolute;
+
+}
+
+#foguete {
+	width: 200px;
+	height: 400px;
+	left: 4200px;
+	border:1px solid red;
+	/*background-image: url(../img/aviao.png);*/
+	background:blue;
+	position: absolute;
+
+}
+
+.faixa {
+	width: 200px;
+	height: 175px;
+	background-image: url(../img/aviao.png);
+	position: absolute;
+
+}
+
+.aviao-esconde {
+	visibility: hidden !important;
+}
+.foguete-esconde {
+	visibility: hidden !important;
+}
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx personagem*/
 
 #juca {
@@ -93,21 +139,28 @@ body {
     z-index: 2000;
 }
 
+#juca.pilota-aviao {
+	background:#fff !important;
+}
 
+#juca.pilota-foguete {
+	background:#fff !important;
+	height: 400px !important;
+}
 
-	#juca.corre {
+#juca.corre {
 		background-position-x: -200px;
 		animation-name:play;
 		animation-duration:1s;
 		animation-iteration-count: infinite;
 		animation-timing-function: steps(2);
-	}	
+}	
 
-	@keyframes play {
+@keyframes play {
 		100% {
 			background-position-x: -600px;
 		}
-	}
+}
 
 
 

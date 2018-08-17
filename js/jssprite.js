@@ -24,24 +24,39 @@ var $terraGramaHn1 = $tamanhoTelaH*0.2;
 var $terraGramaHn2 = $tamanhoTelaH*0.4;
 var $terraGramaHn3 = $tamanhoTelaH*0.6;
 
-$(".terra-grama1").css("height",$terraGramaHn1+"px");
-$(".terra-grama1").css("width",$tamanhoTelaW+"px");
-$(".terra-grama1").css("top",$tamanhoTelaH-$terraGramaHn1+"px");
-
-$(".terra-grama2").css("height",$terraGramaHn2+"px");
-$(".terra-grama2").css("width",$tamanhoTelaW*2+"px");
-$(".terra-grama2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
-$(".terra-grama2").css("left",$tamanhoTelaW+"px");
-
-$(".terra-grama3").css("height",$terraGramaHn3+"px");
-$(".terra-grama3").css("width",$tamanhoTelaW+"px");
-$(".terra-grama3").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
-$(".terra-grama3").css("left",$tamanhoTelaW*2+"px");
+$("#terra-grama0").css("height",$terraGramaHn1+"px");
+$("#terra-grama0").css("width",$tamanhoTelaW*20+"px");
+$("#terra-grama0").css("top",$tamanhoTelaH-$terraGramaHn1+"px");
+$("#terra-grama0").css("left",$tamanhoTelaW*6+"px");
 
 
-$("#aviao").css("left",$tamanhoTelaW*2.9+"px");
-$("#aviao").css("top",$terraGramaHn3+"px");
+$("#terra-grama1").css("height",$terraGramaHn1+"px");
+$("#terra-grama1").css("width",$tamanhoTelaW+"px");
+$("#terra-grama1").css("top",$tamanhoTelaH-$terraGramaHn1+"px");
 
+$("#terra-grama2").css("height",$terraGramaHn2+"px");
+$("#terra-grama2").css("width",$tamanhoTelaW*2+"px");
+$("#terra-grama2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
+$("#terra-grama2").css("left",$tamanhoTelaW+"px");
+
+$("#terra-grama3").css("height",$terraGramaHn3+"px");
+$("#terra-grama3").css("width",$tamanhoTelaW+"px");
+$("#terra-grama3").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
+$("#terra-grama3").css("left",$tamanhoTelaW*2+"px");
+
+//ação avião
+$("#aviao").css("left",$tamanhoTelaW*2.5+"px");
+$("#aviao").css("bottom",$terraGramaHn3+"px");
+
+$("#aviao-nivel1b").css("bottom",$terraGramaHn1+"px");
+
+$("#base").css("bottom",$terraGramaHn1+"px");
+$("#foguete").css("bottom",$terraGramaHn1+"px");
+
+$("#aviao-p").css("left",$tamanhoTelaW*4+"px");
+$("#aviao-p").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
+$("#aviao-p2").css("left",$tamanhoTelaW*5+"px");
+$("#aviao-p2").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
 
 comecaJuca();
 //ajusta o personagem ao piso
@@ -59,7 +74,8 @@ $('#page').css('height',$pisoTamanho);
 
 //responsável pelo rolamento da camada horizontal		
 var $posicaoScrollTopo = $(document).scrollTop();
-$("#camada-horizontal-1").css('left',"-"+$posicaoScrollTopo+'px');
+$("#camada-horizontal-1.animar").css('left',"-"+$posicaoScrollTopo+'px');
+
 
 //console.log($posicaoScrollTopo);
 //retirar o px do valor pego
@@ -100,11 +116,87 @@ $alvoNivel.each(function(index,value){
 
 });
 
+//avião
+
+var $alvoAviao = $("#aviao");
+
+$alvoAviao.each(function(){
+
+	var $posicaoAviao = $(this).offset().left;
+
+	if ($posicaoJuca > $posicaoAviao) {
+
+		$("#juca").addClass("pilota-aviao");
+		$(this).addClass("aviao-esconde");
+
+/*		$("#juca")
+*/	}else {
+		$("#juca").removeClass("pilota-aviao");
+		$(this).removeClass("aviao-esconde");
+
+	}
+});
+
+
+var $alvoNivel1b = $(".nivel1-b");
+
+$alvoNivel1b.each(function(){
+
+	var $posicaoNivel1b = $(this).offset().left;
+
+	if ($posicaoJuca+500 > $posicaoNivel1b) {
+		$("#juca").stop().animate({bottom:$(this).css("height")},70, function(){});
+	}
+});
+
+//aviao pousado nivel1b
+var $alvoNivel1bAviao = $("#aviao-nivel1b");
+
+$alvoNivel1bAviao.each(function(){
+ var $posicaoAviaoPousado = $(this).offset().left;
+
+ if ($posicaoJuca > $posicaoAviaoPousado+200) {
+
+ 	$("#juca").removeClass("pilota-aviao");
+ 	$(this).removeClass("aviao-esconde");
+ }else {
+ 	$(this).addClass("aviao-esconde");
+ }
+});
+
+//foguete pousado nivel1b
+var $alvofoguete = $("#foguete");
+var $posicaoultima
+$alvofoguete.each(function(){
+
+ var $posicaofoguete = $(this).offset().left;
+
+ if ($posicaoJuca > $posicaofoguete+250) {
+
+ 	$("#juca").addClass("pilota-foguete");
+ 	$(this).addClass("foguete-esconde");
+ 	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},100, function(){});
+	 $fina = $("#camada-horizontal-1").css("left");
+
+ }else {
+ 	$(this).removeClass("foguete-esconde");
+	
+	$("#camada-horizontal-1.animar").stop().animate({top:0+'px'},100, function(){
+			$("#juca").removeClass("pilota-foguete");
+	});
+	$posicaoultima = $fina;
+console.log($posicaoultima);
+
+ }
+
+
+});
+
 //retorna somente o número do width
 
 
-/*		$("#nuvem").css('left',"-"+($posicaoScrollTopo*1/10)+'px');
-*/
+		$("#nuvem").css('left',"-"+($posicaoScrollTopo*1/10)+'px');
+
 
 
 }
@@ -153,11 +245,6 @@ $(document).scroll(function(){
 
 
 	animeScroll();
-
-	var $novo = $posicaoScrollTopo*1/10;
-console.log($posicaoScrollTopo +"= novo ="+$novo);
-
-
 
 
 });
