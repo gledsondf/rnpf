@@ -166,7 +166,7 @@ $alvoNivel1bAviao.each(function(){
 
 //foguete pousado nivel1b
 var $alvofoguete = $("#foguete");
-var $posicaoultima
+
 $alvofoguete.each(function(){
 
  var $posicaofoguete = $(this).offset().left;
@@ -175,17 +175,22 @@ $alvofoguete.each(function(){
 
  	$("#juca").addClass("pilota-foguete");
  	$(this).addClass("foguete-esconde");
- 	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},100, function(){});
-	 $fina = $("#camada-horizontal-1").css("left");
+	$("#escuro").addClass("escurecer");
+ 	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},500, function(){
+ 		//$("body").stop().animate({backgroundPositionY:$posicaoScrollTopo+"px"},100, function(){});
+ 	});
+ 	$("body").css("backgroundPositionY",+$posicaoScrollTopo*0.2+"px");
+	$("#camada-horizontal-1").css("left",0);
 
  }else {
  	$(this).removeClass("foguete-esconde");
-	
+	 //	$("body").css("backgroundPositionY",+$posicaoScrollTopo*1.5+"px");
+
 	$("#camada-horizontal-1.animar").stop().animate({top:0+'px'},100, function(){
 			$("#juca").removeClass("pilota-foguete");
+	 		$("#escuro").removeClass("escurecer");
+
 	});
-	$posicaoultima = $fina;
-console.log($posicaoultima);
 
  }
 
@@ -195,7 +200,7 @@ console.log($posicaoultima);
 //retorna somente o número do width
 
 
-		$("#nuvem").css('left',"-"+($posicaoScrollTopo*1/10)+'px');
+	$("#nuvem").css('left',"-"+($posicaoScrollTopo*1/10)+'px');
 
 
 
@@ -226,7 +231,7 @@ if (countCorre==13) {
 
 }
 //pega a ultima posição do scroll
- var $ultimaPosicaoScroll
+ var $ultimaPosicaoScroll;
 
 animeScroll();
 $(document).scroll(function(){

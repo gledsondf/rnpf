@@ -11,8 +11,13 @@ box-sizing: border-box;
 
 }
 
+html {
+	background:#000;
+}
 body {
-    background-color: #00bff3;
+   /* background-color: #00bff3;*/
+    background-color: #fff;
+	background-image: url("../img/espaco.png");
 }
 
 /*pagina responsável pelo scroll*/
@@ -34,6 +39,33 @@ body {
 */	background-color: transparent;
 }
 
+#escuro {
+ background:linear-gradient(#000 0%,#00bff3 0%);	
+ opacity: 1;
+
+ height: 100%;
+
+}
+
+#escuro.escurecer {
+	animation-name:escurecer;
+	animation-duration:1s;
+	animation-iteration-count:1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+@keyframes escurecer {
+	0% {
+		opacity: 1;
+
+	}
+
+
+	100% {
+ 		opacity: 0;
+
+	}
+}
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx camada horizontal piso*/
 
 
