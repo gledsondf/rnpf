@@ -179,7 +179,7 @@ $alvofoguete.each(function(){
  	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},500, function(){
  		//$("body").stop().animate({backgroundPositionY:$posicaoScrollTopo+"px"},100, function(){});
  	});
- 	$("body").css("backgroundPositionY",+$posicaoScrollTopo*0.2+"px");
+ 	$("body").css("backgroundPositionY",+$posicaoScrollTopo*5.2+"px");
 	$("#camada-horizontal-1").css("left",0);
 
  }else {
