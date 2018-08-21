@@ -232,16 +232,21 @@ if (countCorre==13) {
 }
 //pega a ultima posição do scroll
  var $ultimaPosicaoScroll;
-
+var contar=0;
 animeScroll();
 $(document).scroll(function(){
 	//pega posição do scroll
 	var $posicaoScrollTopo = $(document).scrollTop();
 	if ($posicaoScrollTopo > $ultimaPosicaoScroll) {
 		//baixo scroll
+
+		contar++;
 		correr(true);
+
+		console.log(contar);
 	}else {
 		//cima scroll
+		contar--;
 		correr(false);
 	}
 	// guarda a ultima posição
