@@ -179,7 +179,8 @@ $alvofoguete.each(function(){
  	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},500, function(){
  		//$("body").stop().animate({backgroundPositionY:$posicaoScrollTopo+"px"},100, function(){});
  	});
- 	$("body").css("backgroundPositionY",+$posicaoScrollTopo*5.2+"px");
+ 	//$("body").css("backgroundPositionY",+$contar*300+"px");
+ 	$("body").stop().animate({backgroundPositionY:$contar*3000+"px"},10,function(){});
 	$("#camada-horizontal-1").css("left",0);
 
  }else {
@@ -231,8 +232,8 @@ if (countCorre==13) {
 
 }
 //pega a ultima posição do scroll
- var $ultimaPosicaoScroll;
-var contar=0;
+var $ultimaPosicaoScroll;
+var $contar=0;
 animeScroll();
 $(document).scroll(function(){
 	//pega posição do scroll
@@ -240,13 +241,13 @@ $(document).scroll(function(){
 	if ($posicaoScrollTopo > $ultimaPosicaoScroll) {
 		//baixo scroll
 
-		contar++;
+		$contar++;
 		correr(true);
 
-		console.log(contar);
+		console.log($contar);
 	}else {
 		//cima scroll
-		contar--;
+		$contar--;
 		correr(false);
 	}
 	// guarda a ultima posição
@@ -261,6 +262,5 @@ $(document).scroll(function(){
 
 
 
-//console.log($teste);
 
 });
