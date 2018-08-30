@@ -6,18 +6,18 @@ if (
   document.mozFullScreenElement ||/* Firefox syntax */
   document.msFullscreenElement /* IE/Edge syntax */
 ) {
-console.log("gledson");
 
 }
+
+
+
 //pega a largura e altura da página
 
 var $tamanhoTelaH = $(window).height()+150;
 var $tamanhoTelaW = $(window).width();
 
-
 //deixa a tela principal do tamanho do view
 $(".tela-h").css("height",$tamanhoTelaH+"px");
-
 
 //responsável pelo posicionamento do terreno nível 1
 var $terraGramaHn1 = $tamanhoTelaH*0.2;
@@ -28,7 +28,6 @@ $("#terra-grama0").css("height",$terraGramaHn1+"px");
 $("#terra-grama0").css("width",$tamanhoTelaW*20+"px");
 $("#terra-grama0").css("top",$tamanhoTelaH-$terraGramaHn1+"px");
 $("#terra-grama0").css("left",$tamanhoTelaW*6+"px");
-
 
 $("#terra-grama1").css("height",$terraGramaHn1+"px");
 $("#terra-grama1").css("width",$tamanhoTelaW+"px");
@@ -58,13 +57,9 @@ $("#aviao-p").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
 $("#aviao-p2").css("left",$tamanhoTelaW*5+"px");
 $("#aviao-p2").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
 
-comecaJuca();
 //ajusta o personagem ao piso
-function comecaJuca() {
-$("#juca").css("bottom",$terraGramaHn1);
-
-
-}
+function comecaJuca() { $("#juca").css("bottom",$terraGramaHn1); }
+comecaJuca();
 
 
 function animeScroll(){
@@ -92,7 +87,8 @@ function apenasNumeros(string)
 
 var $alvoNivel = $(".nivel");
 
-var $posicaoJuca = $("#juca").offset().left+250;
+var $posicaoJuca = $("#juca").offset().left;
+var $posicaoJucat = $("#juca").offset().top;
 
 var cont = 0;
 
@@ -164,28 +160,93 @@ $alvoNivel1bAviao.each(function(){
  }
 });
 
+
+
 //foguete pousado nivel1b
+ var $posicaofoguete = $("#foguete").offset().left;
 var $alvofoguete = $("#foguete");
+/*var testea=10;
+ if ($posicaoJuca >= $posicaofoguete) {
 
-$alvofoguete.each(function(){
-
- var $posicaofoguete = $(this).offset().left;
-
- if ($posicaoJuca > $posicaofoguete+250) {
-
+ 	console.log("pj = "+$posicaoJuca + "pf ="+$posicaofoguete);
  	$("#juca").addClass("pilota-foguete");
- 	$(this).addClass("foguete-esconde");
-	$("#escuro").addClass("escurecer");
+ 	$("#foguete").addClass("foguete-esconde");
+ 	$("#clock-disparar").addClass("start");
+ 	$("body").css("overflow","hidden");
+ 	$("#camada-horizontal-1").css("left",0);
+ 	setTimeout(function(){$("body").css("overflow","auto");},5000);
  	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},500, function(){
  		//$("body").stop().animate({backgroundPositionY:$posicaoScrollTopo+"px"},100, function(){});
  	});
- 	//$("body").css("backgroundPositionY",+$contar*300+"px");
+}else {
+ 	$("#foguete").removeClass("foguete-esconde");
+ 	$("#juca").removeClass("pilota-foguete");
+ 	$("#clock-disparar").removeClass("start");
+
+ 	console.log("pj = "+$posicaoJuca + "pf ="+$posicaofoguete);
+
+}
+*/
+$alvofoguete.each(function(){
+
+ var $posicaofoguete = $(this).offset().left;
+ var $posicaofoguetet = $(this).offset().top;
+ console.log("foguete ="+$posicaofoguete);
+ console.log("juca = "+$posicaoJuca);
+ console.log("jucatop = "+$posicaoJucat);
+ console.log("foguetetop = "+$posicaofoguetet);
+
+ if(($posicaoJuca+200 > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-200))
+ {
+ 	console.log("colisão");
+ 	$("#juca").addClass("pilota-foguete");
+ 	$(this).addClass("foguete-esconde");
+	$("#clock-disparar").addClass("start");
+	$("#camada-horizontal-1").css("left",0);
+
+	setTimeout(function(){
+ 	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},5000, function(){
+ 		$("body").css("overflow", "auto");
+
+ 	//	$("body").stop().animate({backgroundPositionY:$posicaoScrollTopo+"px"},100, function(){});
+ 	});
+ 		
+ 	},5000);
+ }else{
+ 	$("#juca").removeClass("pilota-foguete");
+ 	$(this).removeClass("foguete-esconde");
+ 	$("#clock-disparar").removeClass("start");
+ }
+
+
+ if ($posicaofoguetet > $posicaoJucat) {
+ 	console.log("passou");
+ }else {
+ 	console.log("não passou");
+ }
+/* if ($posicaoJuca > $posicaofoguete+250) {
+
+
+ 	$("#juca").addClass("pilota-foguete");
+ 	$(this).addClass("foguete-esconde");
+	$("#clock-disparar").addClass("start");*/
+/* 	$("body").css("overflow", "hidden");
+*/ 	/*setTimeout(function(){
+ 	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},5000, function(){
+ 		$("body").css("overflow", "auto");*/
+
+ 	//	$("body").stop().animate({backgroundPositionY:$posicaoScrollTopo+"px"},100, function(){});
+/* 	});
+ 		
+ 	},5000);
+	$("#escuro").addClass("escurecer");
+ 	$("body").css("backgroundPositionY",+$contar*300+"px");
  	$("body").stop().animate({backgroundPositionY:$contar*3000+"px"},10,function(){});
 	$("#camada-horizontal-1").css("left",0);
 
  }else {
  	$(this).removeClass("foguete-esconde");
-	 //	$("body").css("backgroundPositionY",+$posicaoScrollTopo*1.5+"px");
+		$("body").css("backgroundPositionY",+$posicaoScrollTopo*1.5+"px");
 
 	$("#camada-horizontal-1.animar").stop().animate({top:0+'px'},100, function(){
 			$("#juca").removeClass("pilota-foguete");
@@ -193,7 +254,7 @@ $alvofoguete.each(function(){
 
 	});
 
- }
+ }*/
 
 
 });
@@ -206,12 +267,13 @@ $alvofoguete.each(function(){
 
 
 }
-
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx início função correr
+//função que define se o personagem está andando para a direita ou esquerda
 var countCorre = 0;
 
 function correr(valor){
 if(countCorre<=13){
-	
+
 	var $n = -200
 	if (valor) {
 		$("#juca").css("background-image", "url(img/juca4.png)");
@@ -231,11 +293,49 @@ if (countCorre==13) {
 }
 
 }
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função correr
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inicio funcao cronômetro
+
+var $tempo = 6
+
+function cronometro1() {
+ setInterval(dispara,1000);	
+
+}
+
+
+function dispara(valor) {
+
+	if($tempo >=0){
+		$("#clock-disparar").html($tempo);
+		
+	}else {
+		$("#clock-disparar").html("parou");
+
+	}
+		$tempo--;
+
+}
+
+/*function teste() {
+	console.log("gledson");
+	setInterval(function(){
+	$("#clock-disparar").html($tempo+2);
+$tempo--;
+	},1000*0.1);
+}*/
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função cronômetro
+
+
 //pega a ultima posição do scroll
 var $ultimaPosicaoScroll;
 var $contar=0;
+
 animeScroll();
 $(document).scroll(function(){
+
 	//pega posição do scroll
 	var $posicaoScrollTopo = $(document).scrollTop();
 	if ($posicaoScrollTopo > $ultimaPosicaoScroll) {
@@ -244,7 +344,6 @@ $(document).scroll(function(){
 		$contar++;
 		correr(true);
 
-		console.log($contar);
 	}else {
 		//cima scroll
 		$contar--;
@@ -256,6 +355,7 @@ $(document).scroll(function(){
 
 
 	animeScroll();
+
 
 
 });

@@ -160,6 +160,36 @@ body {
 .foguete-esconde {
 	visibility: hidden !important;
 }
+
+#clock-disparar {
+	width: 200px;
+	height: 200px;
+	border:1px solid red;
+	background-image: url(../img/decolar.png);
+
+}
+
+#controle-lancamento ul li {
+	list-style-type: none;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+#controle-lancamento ul li[data=true] {
+	background:#00ff00;
+}
+#controle-lancamento ul li[data=true]:hover {
+	background:#00aa00;
+}
+#controle-lancamento ul li[data=false] {
+	background:#ff0000;
+}
+#controle-lancamento ul li[data=false]:hover {
+	background:#aa0000;
+}
+
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx personagem*/
 
 #juca {
@@ -190,6 +220,23 @@ body {
 }	
 
 @keyframes play {
+		100% {
+			background-position-x: -600px;
+		}
+}
+
+
+
+#clock-disparar.start {
+		background-position-x: 0px;
+		animation-name:decolar;
+		animation-duration:5s;
+		animation-iteration-count:1 ;
+		animation-timing-function: steps(3);
+		animation-fill-mode: forwards;
+}	
+
+@keyframes decolar {
 		100% {
 			background-position-x: -600px;
 		}
