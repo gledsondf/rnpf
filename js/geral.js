@@ -114,10 +114,10 @@ function animeScroll(){
 
 		if ($posicaoJuca > $posicaoAviao) {
 			$("#juca").addClass("pilota-aviao");
-			$(this).addClass("aviao-esconde");
+			$(this).addClass("esconde-visibilidade");
 		}else {
 			$("#juca").removeClass("pilota-aviao");
-			$(this).removeClass("aviao-esconde");
+			$(this).removeClass("esconde-visibilidade");
 		}
 	});
 
@@ -129,9 +129,9 @@ function animeScroll(){
 
 		if ($posicaoJuca > $posicaoAviaoPousado+200) {
 			$("#juca").removeClass("pilota-aviao");
-			$(this).removeClass("aviao-esconde");
+			$(this).removeClass("esconde-visibilidade");
 		}else {
-			$(this).addClass("aviao-esconde");
+			$(this).addClass("esconde-visibilidade");
 		}
 	});
 function apenasNumeros(string) 
@@ -149,23 +149,21 @@ function apenasNumeros(string)
 		 var $posScroll = $(document).scrollTop();
 		  if(($posicaoJuca+200 > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-200)){
 		 
-		  $ultimaPosicaoPiso = $posicaoPisoFinal;
-		  $finalScroll = $posScroll;
-
-
-		  
+			  $("#controle-lancamento").removeClass("esconde-visibilidade");
+              $ultimaPosicaoPiso = $posicaoPisoFinal;
+              $finalScroll = $posScroll;
 		  }else {
-
+			 $("#controle-lancamento").addClass("esconde-visibilidade");
 		  }
+			  if ($posicaoJuca > $posicaofoguete) {
+  	  			 $("#controle-lancamento").addClass("esconde-visibilidade");
+			  	  $npp = apenasNumeros($ultimaPosicaoPiso);
+				 $("#camada-horizontal-1").css("left",$npp);
+			     $(document).scrollTop($finalScroll);
+			 }
 
-		  if ($posicaoJuca > $posicaofoguete) {
-		  	  $npp = apenasNumeros($ultimaPosicaoPiso);
-			  $("#camada-horizontal-1").css("left",$npp+200);
-			  $(document).scrollTop($finalScroll);	
-
-		  }
-
-
+/*		  console.log($ultimaPosicaoPiso);
+*/
 	 });
 	//============================================================== fim funcao pegar obstaculos foguete
 }
@@ -208,19 +206,28 @@ $("#controle-lancamento ul").on("click", "li", function(){
 	var classe = $(this).attr("class");
 	decolar(classe);
 });
-
+var $animaDecola;
 function decolar(valor){
 	 $valor = parseInt(valor);
 	if ($valor) {
+		$("#foguete").addClass("esconde-visibilidade");
 		$("#juca").addClass("pilota-foguete");
 		$("#clock-disparar").addClass("start");
+		$("body").css("overflow", "hidden");
+	 $animaDecola =	setTimeout(function(){
+ 			$("#camada-horizontal-1.animar").stop().animate({top:'2000px'},2000,function(){$("body").css("overflow", "auto");});
+			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){});
+		},5000);
 
 	}else {
+		$("#foguete").removeClass("esconde-visibilidade");
 		$("#clock-disparar").removeClass("start");
 	 	$("#juca").removeClass("pilota-foguete");
-
+	 	clearTimeout($animaDecola);
 	}
 }
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função decolar
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inicio função decolar
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função decolar
 
 

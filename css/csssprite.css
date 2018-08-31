@@ -50,17 +50,18 @@ body {
 
 #escuro.escurecer {
 	animation-name:escurecer;
-	animation-duration:1s;
+	animation-duration:3s;
 	animation-iteration-count:1;
-	animation-timing-function: ease-in-out;
+	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 }
 @keyframes escurecer {
 	0% {
 		opacity: 1;
-
 	}
-
+	50%{
+		opacity: 0.5;
+	}
 
 	100% {
  		opacity: 0;
@@ -154,10 +155,8 @@ body {
 
 }
 
-.aviao-esconde {
-	visibility: hidden !important;
-}
-.foguete-esconde {
+
+.esconde-visibilidade {
 	visibility: hidden !important;
 }
 
