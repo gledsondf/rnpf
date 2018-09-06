@@ -147,7 +147,8 @@ function apenasNumeros(string)
 		 var $posicaofoguete = $(this).offset().left;
 		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
 		 var $posScroll = $(document).scrollTop();
-		  if(($posicaoJuca+200 > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-200)){
+		 console.log($posicaoJuca +"== foguete== "+ $posicaofoguete);
+		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-200)){
 		 
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
@@ -155,15 +156,14 @@ function apenasNumeros(string)
 		  }else {
 			 $("#controle-lancamento").addClass("esconde-visibilidade");
 		  }
-			  if ($posicaoJuca > $posicaofoguete) {
+			  if ($posicaoJuca > $posicaofoguete + 200) {
   	  			 $("#controle-lancamento").addClass("esconde-visibilidade");
 			  	  $npp = apenasNumeros($ultimaPosicaoPiso);
 				 $("#camada-horizontal-1").css("left",$npp);
 			     $(document).scrollTop($finalScroll);
 			 }
 
-/*		  console.log($ultimaPosicaoPiso);
-*/
+
 	 });
 	//============================================================== fim funcao pegar obstaculos foguete
 }
@@ -184,11 +184,11 @@ function correr(valor){
 		//tamanho dos frames
 		var $n = -200
 		if (valor) {
-			$("#juca").css("background-image", "url(img/juca4.png)");
+			$("#juca").css("background-image", "url(img/juca3.png)");
 			setInterval(function(){$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px")},200);
 
 		}else {
-			$("#juca").css("background-image", "url(img/juca4v.png)");
+			$("#juca").css("background-image", "url(img/juca3v.png)");
 			$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px");
 		}
 
@@ -223,6 +223,8 @@ function decolar(valor){
 		$("#foguete").removeClass("esconde-visibilidade");
 		$("#clock-disparar").removeClass("start");
 	 	$("#juca").removeClass("pilota-foguete");
+		$("body").css("overflow", "auto");
+
 	 	clearTimeout($animaDecola);
 	}
 }
@@ -237,6 +239,7 @@ var $ultimaPosicaoScroll;
 var $contar=0;
 var $ultimaPosicaoPiso;
 var $finalScroll;
+
 
 $(document).scroll(function(){
 
@@ -259,6 +262,7 @@ $(document).scroll(function(){
 	animeScroll();
 });
 
+	
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim pegar posição do scroll
 
 });
