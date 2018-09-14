@@ -6,8 +6,10 @@ $(document).ready(function(){
 
 //pega a largura e altura da página
 
-var $tamanhoTelaH = $(window).height()+150;
+
+var $tamanhoTelaH = $(window).height()+200;
 var $tamanhoTelaW = $(window).width();
+
 
 //deixa a tela principal do tamanho do view
 $(".tela-h").css("height",$tamanhoTelaH+"px");
@@ -148,7 +150,7 @@ function apenasNumeros(string)
 		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
 		 var $posScroll = $(document).scrollTop();
 		 console.log($posicaoJuca +"== foguete== "+ $posicaofoguete);
-		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-200)){
+		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-190)){
 		 
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
@@ -214,9 +216,16 @@ function decolar(valor){
 		$("#juca").addClass("pilota-foguete");
 		$("#clock-disparar").addClass("start");
 		$("body").css("overflow", "hidden");
+		$("body").css("-webkit-overflow-scrolling","touch");
+		//$("html,body").css("height", "100%");
+		 //document.body.addEventListener("touchmove", freezeVp, false);
 	 $animaDecola =	setTimeout(function(){
- 			$("#camada-horizontal-1.animar").stop().animate({top:'2000px'},2000,function(){$("body").css("overflow", "auto");});
-			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){});
+ 			$("#camada-horizontal-1.animar").stop().animate({top:'2000px'},2000,function(){
+ 				//$("body").css("overflow", "auto");
+ 			});
+			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){
+				$("#juca").html("<div class='botaofoguete'>gledson</div>");
+			});
 		},5000);
 
 	}else {
@@ -229,6 +238,16 @@ function decolar(valor){
 	}
 }
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função decolar
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inicio função botaofoguete
+
+$("#juca").on("click","div.botaofoguete",function(){
+	 
+	$("body").stop().animate({backgroundPositionY:"3000px"},5000, function(){});
+
+});
+
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função botaofoguete
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inicio função decolar
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função decolar
 

@@ -147,6 +147,14 @@ body {
 
 }
 
+.botaofoguete {
+	position: relative;
+    top: 350px;
+    border: 1px solid red;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
 .faixa {
 	width: 200px;
 	height: 175px;
