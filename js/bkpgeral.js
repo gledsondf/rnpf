@@ -1,13 +1,15 @@
 $(document).ready(function(){
 	
-$tamanhoView = screen.height;
+$tamanhoView = $(window).css("height");
+alert($tamanhoView);
+
 
 
 var $tamanhoTelaH = $tamanhoView;
 //pega a largura e altura da página
 //var $tamanhoTelaH = $(window).height();
-//var $tamanhoTelaW = $(window).width();
-var $tamanhoTelaW = 1920;
+var $tamanhoTelaW = $(window).width();
+
 //deixa a tela principal do tamanho do view
 $(".tela-h").css("height",$tamanhoTelaH+"px");
 
