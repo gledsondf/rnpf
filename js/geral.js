@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	
+
 $tamanhoView = screen.height;
 
 
@@ -181,7 +182,7 @@ function correr(valor){
 	
 	if($countCorre<=13){
 		//tamanho dos frames
-		var $n = -200
+		var $n = -100
 		if (valor) {
 			$("#juca").css("background-image", "url(img/juca3p.png)");
 			setInterval(function(){$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px")},200);
@@ -278,7 +279,11 @@ $(document).scroll(function(){
 	animeScroll();
 });
 
-	
+		$(document).on("touchend",function(){
+			
+			$("#camada-horizontal-1.animar").css('left',"-"+$ultimaPosicaoScroll+'px');
+
+	});
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim pegar posição do scroll
 
 });
