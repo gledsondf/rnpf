@@ -150,7 +150,7 @@ function apenasNumeros(string)
 		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
 		 var $posScroll = $(document).scrollTop();
 
-		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-100)){
+		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-50)){
 		 
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
@@ -158,7 +158,7 @@ function apenasNumeros(string)
 		  }else {
 			 $("#controle-lancamento").addClass("esconde-visibilidade");
 		  }
-			  if ($posicaoJuca > $posicaofoguete + 100) {
+			  if ($posicaoJuca > $posicaofoguete + 110) {
   	  			 $("#controle-lancamento").addClass("esconde-visibilidade");
 			  	  $npp = apenasNumeros($ultimaPosicaoPiso);
 				 $("#camada-horizontal-1").css("left",$npp);
@@ -212,24 +212,31 @@ var $animaDecola;
 function decolar(valor){
 	 $valor = parseInt(valor);
 	if ($valor) {
-		$("#foguete-decola").addClass("show");
-		$("#foguete").addClass("hidden");
-		$("#juca").addClass("hidden");
+/*		$("#foguete-decola").addClass("show inginicao inginicao-start");
+*/		$("#foguete").addClass("inginicao-start");
+/*		$("#foguete").addClass("hidden");
+*/		$("#juca").addClass("hidden");
 		$("#clock-disparar").addClass("start");
 		$("body").css("overflow", "hidden");
 		$("body").css("height", "100%");
 
 	 $animaDecola =	setTimeout(function(){
  			$("#camada-horizontal-1.animar").stop().animate({top:'2000px'},2000,function(){});
+ 			$("#foguete").addClass("hidden");
+ 			$("#foguete").removeClass("inginicao-start");
+ 			$("#foguete-decola").addClass("show");
+ 			$("#foguete-decola").addClass("start");
 			
 			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){
 				$("#foguete-decola").html("<div class='botaofoguete'>gledson</div>");
+				$("#foguete-decola").addClass("orbita");
+
 			});
 			},5000);
 
 	}else {
 		$("#foguete-decola").removeClass("show");
-		$("#foguete").removeClass("hidden");
+		$("#foguete").removeClass("inginicao-start");
 		$("#clock-disparar").removeClass("start");
 	 	$("#juca").removeClass("hidden");
 		$("body").css("overflow", "auto");
@@ -242,10 +249,14 @@ function decolar(valor){
 
 $("#foguete-decola").on("click","div.botaofoguete",function(){
 	 
-	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){});
+	$("#foguete-decola").addClass("start");
+	$("#foguete-decola").removeClass("orbita");
+	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){$("#foguete-decola").removeClass("start");});
 	$("#camada-horizontal-2").stop().animate({top:$tamanhoTelaH-$terraGramaHn1+"px"},3000, function(){
-		$("#juca").removeClass("hidden");
+		$("#foguete-decola").addClass("para");
 		$("body").css("overflow", "auto");
+		setInterval(function(){$("#juca").removeClass("hidden");},5000);
+		
 
 	});
 
