@@ -44,6 +44,7 @@ $("#aviao-nivel1b").css("bottom",$terraGramaHn1+"px");
 
 $("#base").css("bottom",$terraGramaHn1+"px");
 $("#foguete").css("bottom",$terraGramaHn1+"px");
+$("#foguete-decola").css("bottom",$terraGramaHn1+"px");
 
 $("#aviao-p").css("left",$tamanhoTelaW*4+"px");
 $("#aviao-p").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
@@ -134,6 +135,7 @@ function animeScroll(){
 			$(this).addClass("esconde-visibilidade");
 		}
 	});
+
 function apenasNumeros(string) 
 {
 	//var numsStr = string.replace(/[^0-9]/g,'');
@@ -148,7 +150,7 @@ function apenasNumeros(string)
 		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
 		 var $posScroll = $(document).scrollTop();
 
-		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-190)){
+		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-100)){
 		 
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
@@ -156,7 +158,7 @@ function apenasNumeros(string)
 		  }else {
 			 $("#controle-lancamento").addClass("esconde-visibilidade");
 		  }
-			  if ($posicaoJuca > $posicaofoguete + 200) {
+			  if ($posicaoJuca > $posicaofoguete + 100) {
   	  			 $("#controle-lancamento").addClass("esconde-visibilidade");
 			  	  $npp = apenasNumeros($ultimaPosicaoPiso);
 				 $("#camada-horizontal-1").css("left",$npp);
@@ -210,26 +212,26 @@ var $animaDecola;
 function decolar(valor){
 	 $valor = parseInt(valor);
 	if ($valor) {
-		$("#foguete").addClass("esconde-visibilidade");
-		$("#juca").addClass("pilota-foguete");
+		$("#foguete-decola").addClass("show");
+		$("#foguete").addClass("hidden");
+		$("#juca").addClass("hidden");
 		$("#clock-disparar").addClass("start");
 		$("body").css("overflow", "hidden");
-		$("body").css("-webkit-overflow-scrolling","touch");
-		//$("html,body").css("height", "100%");
-		 //document.body.addEventListener("touchmove", freezeVp, false);
+		$("body").css("height", "100%");
+
 	 $animaDecola =	setTimeout(function(){
- 			$("#camada-horizontal-1.animar").stop().animate({top:'2000px'},2000,function(){
- 				//$("body").css("overflow", "auto");
- 			});
+ 			$("#camada-horizontal-1.animar").stop().animate({top:'2000px'},2000,function(){});
+			
 			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){
-				$("#juca").html("<div class='botaofoguete'>gledson</div>");
+				$("#foguete-decola").html("<div class='botaofoguete'>gledson</div>");
 			});
-		},5000);
+			},5000);
 
 	}else {
-		$("#foguete").removeClass("esconde-visibilidade");
+		$("#foguete-decola").removeClass("show");
+		$("#foguete").removeClass("hidden");
 		$("#clock-disparar").removeClass("start");
-	 	$("#juca").removeClass("pilota-foguete");
+	 	$("#juca").removeClass("hidden");
 		$("body").css("overflow", "auto");
 
 	 	clearTimeout($animaDecola);
@@ -238,9 +240,14 @@ function decolar(valor){
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função decolar
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inicio função botaofoguete
 
-$("#juca").on("click","div.botaofoguete",function(){
+$("#foguete-decola").on("click","div.botaofoguete",function(){
 	 
-	$("body").stop().animate({backgroundPositionY:"3000px"},5000, function(){});
+	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){});
+	$("#camada-horizontal-2").stop().animate({top:$tamanhoTelaH-$terraGramaHn1+"px"},3000, function(){
+		$("#juca").removeClass("hidden");
+		$("body").css("overflow", "auto");
+
+	});
 
 });
 
@@ -279,11 +286,7 @@ $(document).scroll(function(){
 	animeScroll();
 });
 
-		$(document).on("touchend",function(){
-			
-			$("#camada-horizontal-1.animar").css('left',"-"+$ultimaPosicaoScroll+'px');
 
-	});
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim pegar posição do scroll
 
 });
