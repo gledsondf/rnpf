@@ -186,11 +186,11 @@ function correr(valor){
 		//tamanho dos frames
 		var $n = -100
 		if (valor) {
-			$("#juca").css("background-image", "url(img/juca3p.png)");
-			setInterval(function(){$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px")},200);
+			$("#juca").css("background-image", "url(img/profissionalD.png)");
+			setInterval(function(){$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px")},5000);
 
 		}else {
-			$("#juca").css("background-image", "url(img/juca3pv.png)");
+			$("#juca").css("background-image", "url(img/profissionalD.png)");
 			$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px");
 		}
 
