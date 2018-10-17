@@ -182,21 +182,21 @@ var $countCorre = 0;
 function correr(valor){
 	//valor será verdadeiro ou falso, se scroll direcão baixo verdadeiro
 	
-	if($countCorre<=13){
+	if($countCorre<=12){
 		//tamanho dos frames
-		var $n = -100
+		var $n = -110
 		if (valor) {
-			$("#juca").css("background-image", "url(img/profissionalD.png)");
-			setInterval(function(){$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px")},5000);
+			$("#juca").css("background-image", "url(img/novo.png)");
+			$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px");
 
 		}else {
-			$("#juca").css("background-image", "url(img/profissionalD.png)");
+			$("#juca").css("background-image", "url(img/novoV.png)");
 			$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px");
 		}
 
 		$countCorre+=1;
 
-		if ($countCorre==13) {
+		if ($countCorre==12) {
 			$countCorre=0;
 		}
 	}
