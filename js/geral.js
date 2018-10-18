@@ -40,7 +40,11 @@ $("#terra-grama3").css("left",$tamanhoTelaW*2+"px");
 $("#aviao").css("left",$tamanhoTelaW*2.5+"px");
 $("#aviao").css("bottom",$terraGramaHn3+"px");
 
+$(".hangar,.hangar2").css("left",$tamanhoTelaW*2.4+"px");
+$(".hangar,.hangar2").css("bottom",$terraGramaHn3+"px");
+
 $("#aviao-nivel1b").css("bottom",$terraGramaHn1+"px");
+$(".hangar2b,.hangarb").css("bottom",$terraGramaHn1+"px");
 
 $("#base").css("bottom",$terraGramaHn1+"px");
 $("#foguete").css("bottom",$terraGramaHn1+"px");
@@ -85,7 +89,7 @@ function animeScroll(){
 		var $elemento = $alvoNivel[index];
 		var $obstaculoAltura = $($elemento).css("height");
 
-		if ($posicaoJuca > $posicaoElemento-200) {
+		if ($posicaoJuca > $posicaoElemento-150) {
 			$contaNivel +=1;		
 			var	$final = $total-$contaNivel; 	
 		}
@@ -114,10 +118,12 @@ function animeScroll(){
 		var $posicaoAviao = $(this).offset().left;
 
 		if ($posicaoJuca > $posicaoAviao) {
+			$("#juca").removeClass("caminhando");
 			$("#juca").addClass("pilota-aviao");
 			$(this).addClass("esconde-visibilidade");
 		}else {
 			$("#juca").removeClass("pilota-aviao");
+			$("#juca").addClass("caminhando");
 			$(this).removeClass("esconde-visibilidade");
 		}
 	});
@@ -130,9 +136,11 @@ function animeScroll(){
 
 		if ($posicaoJuca > $posicaoAviaoPousado+200) {
 			$("#juca").removeClass("pilota-aviao");
+			$("#juca").addClass("caminhando");
 			$(this).removeClass("esconde-visibilidade");
 		}else {
 			$(this).addClass("esconde-visibilidade");
+
 		}
 	});
 
@@ -150,7 +158,7 @@ function apenasNumeros(string)
 		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
 		 var $posScroll = $(document).scrollTop();
 
-		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-50)){
+		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-100)){
 		 
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
@@ -184,14 +192,14 @@ function correr(valor){
 	
 	if($countCorre<=12){
 		//tamanho dos frames
-		var $n = -110
+		var $n = -110;
 		if (valor) {
-			$("#juca").css("background-image", "url(img/novo.png)");
-			$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px");
+			$("#juca.caminhando").css("background-image", "url(img/novo.png)");
+			$("#juca.caminhando").css("backgroundPositionX",""+$n*$countCorre+"px");
 
 		}else {
-			$("#juca").css("background-image", "url(img/novoV.png)");
-			$("#juca").css("backgroundPositionX",""+$n*$countCorre+"px");
+			$("#juca.caminhando").css("background-image", "url(img/novoV.png)");
+			$("#juca.caminhando").css("backgroundPositionX",""+$n*$countCorre+"px");
 		}
 
 		$countCorre+=1;
