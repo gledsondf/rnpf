@@ -19,21 +19,21 @@ var $terraGramaHn3 = $tamanhoTelaH*0.6;
 
 $("#terra-grama0").css("height",$terraGramaHn1+"px");
 $("#terra-grama0").css("width",$tamanhoTelaW*20+"px");
-$("#terra-grama0").css("top",$tamanhoTelaH-$terraGramaHn1+"px");
+$("#terra-grama0").css("top",$tamanhoTelaH-$terraGramaHn1-15+"px");
 $("#terra-grama0").css("left",$tamanhoTelaW*6+"px");
 
 $("#terra-grama1").css("height",$terraGramaHn1+"px");
 $("#terra-grama1").css("width",$tamanhoTelaW+"px");
-$("#terra-grama1").css("top",$tamanhoTelaH-$terraGramaHn1+"px");
+$("#terra-grama1").css("top",$tamanhoTelaH-$terraGramaHn1-15+"px");
 
 $("#terra-grama2").css("height",$terraGramaHn2+"px");
 $("#terra-grama2").css("width",$tamanhoTelaW*2+"px");
-$("#terra-grama2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
+$("#terra-grama2").css("top",$tamanhoTelaH-$terraGramaHn2-15+"px");
 $("#terra-grama2").css("left",$tamanhoTelaW+"px");
 
 $("#terra-grama3").css("height",$terraGramaHn3+"px");
 $("#terra-grama3").css("width",$tamanhoTelaW+"px");
-$("#terra-grama3").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
+$("#terra-grama3").css("top",$tamanhoTelaH-$terraGramaHn3-15+"px");
 $("#terra-grama3").css("left",$tamanhoTelaW*2+"px");
 
 //ação avião
@@ -44,10 +44,10 @@ $(".hangar,.hangar2").css("left",$tamanhoTelaW*2.4+"px");
 $(".hangar,.hangar2").css("bottom",$terraGramaHn3+"px");
 
 $("#aviao-nivel1b").css("bottom",$terraGramaHn1+"px");
-$(".hangar2b,.hangarb").css("bottom",$terraGramaHn1+"px");
+$(".hangar2b,.hangarb").css("bottom",$terraGramaHn1-15+"px");
 
-$("#base").css("bottom",$terraGramaHn1+"px");
-$("#foguete").css("bottom",$terraGramaHn1+"px");
+$("#base").css("bottom",$terraGramaHn1-15+"px");
+$("#foguete").css("bottom",$terraGramaHn1-15+"px");
 $("#foguete-decola").css("bottom",$terraGramaHn1+"px");
 
 $("#aviao-p").css("left",$tamanhoTelaW*4+"px");
@@ -159,12 +159,13 @@ function apenasNumeros(string)
 		 var $posScroll = $(document).scrollTop();
 
 		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-100)){
-		 
+		 	  $("#juca").addClass("pilota-foguete");
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
               $finalScroll = $posScroll;
 		  }else {
 			 $("#controle-lancamento").addClass("esconde-visibilidade");
+			 $("#juca").removeClass("pilota-foguete");
 		  }
 			  if ($posicaoJuca > $posicaofoguete + 110) {
   	  			 $("#controle-lancamento").addClass("esconde-visibilidade");
@@ -236,7 +237,7 @@ function decolar(valor){
  			$("#foguete-decola").addClass("start");
 			
 			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){
-				$("#foguete-decola").html("<div class='botaofoguete'>gledson</div>");
+				$("#foguete-decola").html("<div id='foguete-turbo'></div>");
 				$("#foguete-decola").addClass("orbita");
 
 			});
@@ -255,12 +256,13 @@ function decolar(valor){
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim função decolar
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inicio função botaofoguete
 
-$("#foguete-decola").on("click","div.botaofoguete",function(){
+$("#foguete-decola").on("click","div#foguete-turbo",function(){
 	 
+	$("#foguete-turbo").addClass("active");
 	$("#foguete-decola").addClass("start");
 	$("#foguete-decola").removeClass("orbita");
 	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){$("#foguete-decola").removeClass("start");});
-	$("#camada-horizontal-2").stop().animate({top:$tamanhoTelaH-$terraGramaHn1+"px"},3000, function(){
+	$("#camada-horizontal-2").stop().animate({top:"75%"},3000, function(){
 		$("#foguete-decola").addClass("para");
 		$("body").css("overflow", "auto");
 		setInterval(function(){$("#juca").removeClass("hidden");},5000);
