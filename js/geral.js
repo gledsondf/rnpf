@@ -44,7 +44,7 @@ $(".hangar,.hangar2").css("left",$tamanhoTelaW*2.4+"px");
 $(".hangar,.hangar2").css("bottom",$terraGramaHn3+"px");
 
 $("#aviao-nivel1b").css("bottom",$terraGramaHn1+"px");
-$(".hangar2b,.hangarb").css("bottom",$terraGramaHn1-15+"px");
+$(".hangar2b,.hangarb,.fim").css("bottom",$terraGramaHn1-15+"px");
 
 $("#base").css("bottom",$terraGramaHn1-15+"px");
 $("#foguete").css("bottom",$terraGramaHn1-15+"px");
@@ -159,20 +159,20 @@ function apenasNumeros(string)
 		 var $posScroll = $(document).scrollTop();
 
 		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-100)){
-		 	  $("#juca").addClass("pilota-foguete");
+		 	  $("#juca.terra").addClass("pilota-foguete");
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
               $finalScroll = $posScroll;
 		  }else {
 			 $("#controle-lancamento").addClass("esconde-visibilidade");
-			 $("#juca").removeClass("pilota-foguete");
+			 $("#juca.terra").removeClass("pilota-foguete");
 		  }
-			  if ($posicaoJuca > $posicaofoguete + 110) {
+/*			  if ($posicaoJuca > $posicaofoguete + 110) {
   	  			 $("#controle-lancamento").addClass("esconde-visibilidade");
 			  	  $npp = apenasNumeros($ultimaPosicaoPiso);
 				 $("#camada-horizontal-1").css("left",$npp);
 			     $(document).scrollTop($finalScroll);
-			 }
+			 }*/
 
 
 	 });
@@ -184,7 +184,6 @@ animeScroll();
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim anime scroll
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx início função correr
-
 //função que define se o personagem está andando para a direita ou esquerda
 var $countCorre = 0;
 
@@ -237,7 +236,7 @@ function decolar(valor){
  			$("#foguete-decola").addClass("start");
 			
 			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){
-				$("#foguete-decola").html("<div id='foguete-turbo'></div>");
+				$("#foguete-decola").html("<div id='foguete-turbo' class='atencao'></div>");
 				$("#foguete-decola").addClass("orbita");
 
 			});
@@ -259,13 +258,14 @@ function decolar(valor){
 $("#foguete-decola").on("click","div#foguete-turbo",function(){
 	 
 	$("#foguete-turbo").addClass("active");
+	$("#foguete-turbo").removeClass("atencao");
 	$("#foguete-decola").addClass("start");
 	$("#foguete-decola").removeClass("orbita");
 	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){$("#foguete-decola").removeClass("start");});
-	$("#camada-horizontal-2").stop().animate({top:"75%"},3000, function(){
+	$("#camada-horizontal-2").stop().animate({top:"76%"},3000, function(){
 		$("#foguete-decola").addClass("para");
-		$("body").css("overflow", "auto");
-		setInterval(function(){$("#juca").removeClass("hidden");},5000);
+		$("body").css("overflow", "hidden");
+		setInterval(function(){$("#juca").removeClass("hidden terra");},5000);
 		
 
 	});
@@ -305,6 +305,12 @@ $(document).scroll(function(){
 	$ultimaPosicaoScroll = $posicaoScrollTopo;
 	// a cada rolagem de página, chamo a função
 	animeScroll();
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx efeito parallax plano de fundo
+	$("#planoFundo3").css('backgroundPositionX',"-"+($posicaoScrollTopo*0.1)+'px');
+	$("#planoFundo1").css('backgroundPositionX',"-"+($posicaoScrollTopo*0.2)+'px');
+	$("#planoFundo2").css('backgroundPositionX',"-"+($posicaoScrollTopo*0.3)+'px');
+
 });
 
 

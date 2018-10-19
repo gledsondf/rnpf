@@ -15,11 +15,13 @@ html {
 	background:#000;
 }
 body {
-   /* background-color: #00bff3;*/
-    background-color: #A67C52;
-    background-image: url("../img/espaco.png");
-	background-attachment: fixed;
-}
+    background-image: url(../img/espaco.png);
+/*	background-attachment: fixed;
+*/}
+
+#geral {
+/*    background-image: url(../img/espaco.png);
+*/}
 
 /*pagina responsável pelo scroll*/
 #page {
@@ -36,38 +38,9 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-/*	border:5px solid red;
-*/	background-color: transparent;
+	background-color: transparent;
 }
 
-#escuro {
- background:linear-gradient(#000 0%,#00bff3 0%);	
- opacity: 1;
-
- height: 100%;
-
-}
-
-#escuro.escurecer {
-	animation-name:escurecer;
-	animation-duration:3s;
-	animation-iteration-count:1;
-	animation-timing-function: ease-out;
-	animation-fill-mode: forwards;
-}
-@keyframes escurecer {
-	0% {
-		opacity: 1;
-	}
-	50%{
-		opacity: 0.5;
-	}
-
-	100% {
- 		opacity: 0;
-
-	}
-}
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx camada horizontal piso*/
 
 
@@ -79,16 +52,31 @@ body {
 
 }
 #camada-horizontal-2 {
-	top:-50px;
+	top:-90px;
 	width:18000px;
 	height: 90px;
 	position: absolute;
-	background: #fff;
 	z-index: 2000;
-
 }
 
+.fundoSpacial {
+	background-image: url(../img/fundoSpacial.png) !important;
 
+}
+#planoFundo3 {
+    height: 100%;
+    background-image: url(../img/espaco.png);
+}
+#planoFundo2 {
+    height: 100%;
+    background-image: url(../img/fundogeral.png);
+    background-image: url(../img/planoFundo2.png);
+}
+#planoFundo1 {
+    height: 100%;
+    background-image: url(../img/fundogeral.png);
+    background-image: url(../img/planoFundo1.png);
+}
 
 [class*="terra-grama"]{
 	width: 100%;
@@ -143,6 +131,14 @@ body {
 	left: 1000px !important;
 }
 
+.fim {
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 2001;
+		left: 1000px !important;
+
+background-image: url(../img/placaFim.png);
+}
 #aviao-nivel1b {
 	width: 200px;
 	height: 175px;
@@ -238,17 +234,38 @@ body {
 	bottom: 200px;
 	left: 161px;
 	background-image: url(../img/botao-foguete.png);
+	background-position-x:-40px; 
 
 }
+
 #foguete-turbo:hover {
 	background-image: url(../img/botao-foguete.png);
-	background-position-x:-40px; 
+	background-position-x:-80px; 
 }
 
 #foguete-turbo.active {
 	background-image: url(../img/botao-foguete.png);
-	background-position-x:-80px; 
+	background-position-x:-120px; 
 }
+
+#foguete-turbo.atencao {
+	animation-name:atencao;
+	animation-duration:1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps(2);
+}
+
+@keyframes atencao {
+	0% {
+		background-position-x: 0;
+	}
+
+	100% {
+		background-position-x: -80px;
+	}
+}
+
+
 
 @keyframes orbita {
 	0% {
