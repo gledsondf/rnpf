@@ -1,3 +1,8 @@
+/*
+XXXXXXXXXXXXXXXXXXXX AUTHOR
+GLEDSON LUCIANO DA SILVA
+*/
+
 *{
 padding: 0;
 margin: 0;
@@ -13,6 +18,7 @@ box-sizing: border-box;
 
 html {
 	background:#000;
+	font-family: verdana;
 }
 body {
     background-image: url(../img/espaco.png);
@@ -95,7 +101,16 @@ body {
 	position: absolute;
 }
 
-
+.terra-conteudo {
+    width: 50%;
+    height: 50px;
+    text-align: center;
+    padding: 0px;
+    font-size: 2.5em;
+    margin-top: 60px;
+    color: #fff;
+    font-weight: 700;
+}
 .grama {
 	width: 100%;
 	height: 50px;
@@ -132,12 +147,13 @@ body {
 }
 
 .fim {
+	height: 200px;
+	width: 200px;
 	background-repeat: no-repeat;
 	position: absolute;
 	z-index: 2001;
-		left: 1000px !important;
-
-background-image: url(../img/placaFim.png);
+	left: 5000px !important;
+	background-image: url(../img/placaFim.png);
 }
 #aviao-nivel1b {
 	width: 200px;
@@ -178,6 +194,26 @@ background-image: url(../img/placaFim.png);
     display: none;
     background-image: url(../img/fogueteparado.png);
     background-position-y:70px; 
+}
+
+#engloba-nave {
+	left:27%;
+	width: 320px;
+	height: 400px;
+	z-index: 1990;
+	position: absolute;
+	bottom: 200px;
+}
+
+#nave {
+	height: 200px;
+	background: blue;
+}
+
+#nave-conteudo {
+	height: 200px;
+	background: #fff;
+	text-align: center;
 }
 
 #foguete-decola.inginicao {
@@ -311,14 +347,6 @@ background-image: url(../img/placaFim.png);
     width: 100px;
     margin: 0 auto;
 }
-.faixa {
-	width: 200px;
-	height: 175px;
-	background-image: url(../img/aviao.png);
-	position: absolute;
-
-}
-
 
 .esconde-visibilidade {
 	visibility: hidden !important;
@@ -356,16 +384,19 @@ background-image: url(../img/placaFim.png);
 
 
 #controle-lancamento ul li[data=true] {
-	background:#00ff00;
+	background-color:#00ff00;
+	background-image: url(../img/botaoControle.png);
 }
 #controle-lancamento ul li[data=true]:hover {
-	background:#00aa00;
+	background-color:#00aa00;
 }
 #controle-lancamento ul li[data=false] {
-	background:#ff0000;
+	background-color:#ff0000;
+	background-image: url(../img/botaoControle.png);
+	background-position-x: -50px; 
 }
 #controle-lancamento ul li[data=false]:hover {
-	background:#aa0000;
+	background-color:#aa0000;
 }
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx personagem*/
@@ -400,12 +431,75 @@ background-image: url(../img/placaFim.png);
 		animation-timing-function: steps(2);
 }
 
-#juca.pilota-aviao {
+#juca.pilota-aviao, .aviaoPropaganda {
 		animation-name:play-aviao;
 		animation-duration:1s;
 		animation-iteration-count: infinite;
 		animation-timing-function: steps(5);
 }
+
+[data="aviao-propaganda"] {
+	width: 200px;
+	height: 175px;
+	background-image: url(../img/aviaoPropaganda.png);
+	background-position-x:-200px; 
+	position: relative;
+	float: left;
+}
+
+.engloba-aviaoPropaganda {
+    height: 300px;
+    position: absolute;
+/*    left: 5807px;
+    top: 648px;*/
+    width: 802px;
+}
+
+.banner-aviao {
+	background: #fff;
+	height: 100px;
+	width: 600px;
+	float: left;
+	top: 75px;
+	position: relative;
+	color: #000;
+	text-align: center;
+	padding: 10px 50px 0 0;
+	background: url("../img/pontabannerD.png") no-repeat 550px;
+}
+
+.banner-aviao-conteudo {
+	background: #fff;
+    height: 80px;
+    width: 550px;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+	font-size: 2em;
+	font-weight: 700;
+}
+
+.aviaoPropaganda {
+	animation-name:play-aviao;
+	animation-duration:1s;
+	animation-iteration-count:infinite;
+	animation-timing-function:steps(5);
+}
+
+.moveAviao {
+	animation-name:moveAviao;
+	animation-duration:900s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
+}
+
+@keyframes moveAviao{
+	100% {
+
+		left:50000px;
+	}
+}
+
 
 @keyframes play-aviao {
 		0% {

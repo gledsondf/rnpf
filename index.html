@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>teste sprite</title>
+	<title>COFFITO - RNPF</title>
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0 ,user-scalable=no">
+	<meta charset="utf-8">
 	 <script src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/geral.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/csssprite.css">
@@ -21,6 +22,10 @@
 		</div> 
 		<div id="juca" class="pequeno caminhando terra"></div> 
 		<div id="foguete-decola"></div> 
+		<div id="engloba-nave">
+			<div id="nave"></div>
+			<div id="nave-conteudo">Doutorado : 35.000 Horas</div>
+		</div> 
 			<div id="camada-horizontal-1" class="camada-horizontal animar" >
 			<div id="planoFundo3">
 				<div id="planoFundo2">
@@ -31,26 +36,35 @@
 			<div class="hangar"></div>
 			<div class="hangar2"></div>
 			<div id="aviao"></div>
-			<div id="aviao-p" class="faixa"></div>
-			<div id="aviao-p2" class="faixa"></div>
+			<div class="engloba-aviaoPropaganda" id="englobaAV0">
+				<div class="banner-aviao"><div class="banner-aviao-conteudo">Mestrado : 18.000 Horas</div></div>
+				<div data="aviao-propaganda" class="aviaoPropaganda"></div>
+			</div>
+			<div class="engloba-aviaoPropaganda" id="englobaAV1">
+				<div class="banner-aviao"><div class="banner-aviao-conteudo">Residência : 5.760 Horas</div></div>
+				<div data="aviao-propaganda" class="aviaoPropaganda"></div>
+			</div>
+			<div class="engloba-aviaoPropaganda" id="englobaAV2">
+				<div class="banner-aviao"><div class="banner-aviao-conteudo">Pós-Graduação : 360 Horas</div></div>
+				<div data="aviao-propaganda" class="aviaoPropaganda"></div>
+			</div>
  			<div id="terra-grama3" class="terra-grama3 nivel">
-				<div class="terra"></div>
-				<div class="grama"></div>
+				<div class="terra"><div class="terra-conteudo">Extensão : 100 Horas</div></div>
 			</div>
 			<div id="terra-grama2" class="terra-grama2 nivel">
-				<div class="terra"></div>
-				<div class="grama"></div>
+				<div class="terra">
+					<div class="terra-conteudo">Graduação : 43.000 Horas</div>
+				</div>
 			</div> 
 			<div id="terra-grama1" class="terra-grama1 nivel">
 				<div class="terra"></div>
-				<div class="grama"></div>
 			</div>
 			<div id="terra-grama0" class="terra-grama1 nivel1-b">
 				<div id="base" class="">
 					<div id="controle-lancamento" class="esconde-visibilidade">
 						<ul>
-							<li class="1" data="true">Entrar</li>
-							<li class="0" data="false">Sair</li>
+							<li class="1" data="true" title="Entrar" alt="Entrar"></li>
+							<li class="0" data="false" title="Sair" alt="Sair"></li>
 						</ul>
 					</div>
 					<div id="clock-disparar" ></div></div>
@@ -60,7 +74,6 @@
 				<div class="fim"></div>
 				<div id="aviao-nivel1b" class="esconde-visibilidade"></div>
 				<div class="terra"></div>
-				<div class="grama"></div>
 			</div>
 		</div>
 		<div id="camada-horizontal-2" class="camada-horizontal fundoSpacial"></div> 

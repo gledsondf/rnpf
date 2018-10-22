@@ -49,11 +49,17 @@ $(".hangar2b,.hangarb,.fim").css("bottom",$terraGramaHn1-15+"px");
 $("#base").css("bottom",$terraGramaHn1-15+"px");
 $("#foguete").css("bottom",$terraGramaHn1-15+"px");
 $("#foguete-decola").css("bottom",$terraGramaHn1+"px");
+/*$("#nave").css("bottom",$terraGramaHn1+"px");
+*/
 
-$("#aviao-p").css("left",$tamanhoTelaW*4+"px");
-$("#aviao-p").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
-$("#aviao-p2").css("left",$tamanhoTelaW*5+"px");
-$("#aviao-p2").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
+$("#englobaAV0").css("left",$tamanhoTelaW*5+"px");
+$("#englobaAV0").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
+
+$("#englobaAV1").css("left",$tamanhoTelaW*4+"px");
+$("#englobaAV1").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
+
+$("#englobaAV2").css("left",$tamanhoTelaW*3.1+"px");
+$("#englobaAV2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
 
 //ajusta o personagem ao piso
 function comecaJuca() { $("#juca").css("bottom",$terraGramaHn1); }
@@ -98,19 +104,21 @@ function animeScroll(){
 
 	});	
 
-	//nivel baixo de piso
+	//nivel baixo de piso pouso suave
 	var $alvoNivel1b = $(".nivel1-b");
 
 	$alvoNivel1b.each(function(){
 		var $posicaoNivel1b = $(this).offset().left;
+		var $alturaNivel1b = $(this).css("height");
 
 		if ($posicaoJuca+500 > $posicaoNivel1b) {
-			$("#juca").stop().animate({bottom:$(this).css("height")},70, function(){});
+			$("#juca").stop().animate({bottom:$alturaNivel1b},10, function(){});
 		}
 	});
 
 	//============================================================== fim funcao pegar obstaculos nível
 	//============================================================== funcao pegar obstaculos avião
+	
 	
 	var $alvoAviao = $("#aviao");
 
@@ -121,10 +129,13 @@ function animeScroll(){
 			$("#juca").removeClass("caminhando");
 			$("#juca").addClass("pilota-aviao");
 			$(this).addClass("esconde-visibilidade");
+			$(".engloba-aviaoPropaganda").addClass("moveAviao");
 		}else {
 			$("#juca").removeClass("pilota-aviao");
 			$("#juca").addClass("caminhando");
 			$(this).removeClass("esconde-visibilidade");
+			$(".engloba-aviaoPropaganda").removeClass("moveAviao");
+
 		}
 	});
 
@@ -155,28 +166,39 @@ function apenasNumeros(string)
 	 var $alvofoguete = $("#foguete");
 	 $alvofoguete.each(function(){
 		 var $posicaofoguete = $(this).offset().left;
-		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
-		 var $posScroll = $(document).scrollTop();
 
 		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-100)){
 		 	  $("#juca.terra").addClass("pilota-foguete");
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
-              $finalScroll = $posScroll;
 		  }else {
 			 $("#controle-lancamento").addClass("esconde-visibilidade");
 			 $("#juca.terra").removeClass("pilota-foguete");
 		  }
-/*			  if ($posicaoJuca > $posicaofoguete + 110) {
-  	  			 $("#controle-lancamento").addClass("esconde-visibilidade");
-			  	  $npp = apenasNumeros($ultimaPosicaoPiso);
-				 $("#camada-horizontal-1").css("left",$npp);
-			     $(document).scrollTop($finalScroll);
-			 }*/
+	 });
+	//============================================================== fim funcao pegar obstaculos foguete
+	//============================================================== funcao pegar final tela placa
+	 var $alvoPlaca = $(".fim");
+	 $alvoPlaca.each(function(){
+		 var $posicaoPlaca = $(this).offset().left;
+		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
+		 var $posScroll = $(document).scrollTop();
 
+		 if (($posicaoJuca > $posicaoPlaca) && ($posicaoPlaca > $posicaoJuca-100)) {
+		 	 $ultimaPosicaoPiso = $posicaoPisoFinal;
+	         $finalScroll = $posScroll;
+		 	 console.log("posJ ="+$posicaoJuca+" -- piso =" +$posicaoPisoFinal+"--- scroll ="+$finalScroll);
+		 }
+
+		 if ($posicaoJuca > $posicaoPlaca+100) {
+	  	  $npp = apenasNumeros($ultimaPosicaoPiso);
+		  $("#camada-horizontal-1").css("left",$npp);
+	      $(document).scrollTop($finalScroll);
+		 }
 
 	 });
 	//============================================================== fim funcao pegar obstaculos foguete
+
 }
 
 animeScroll();
@@ -220,10 +242,8 @@ var $animaDecola;
 function decolar(valor){
 	 $valor = parseInt(valor);
 	if ($valor) {
-/*		$("#foguete-decola").addClass("show inginicao inginicao-start");
-*/		$("#foguete").addClass("inginicao-start");
-/*		$("#foguete").addClass("hidden");
-*/		$("#juca").addClass("hidden");
+		$("#foguete").addClass("inginicao-start");
+	$("#juca").addClass("hidden");
 		$("#clock-disparar").addClass("start");
 		$("body").css("overflow", "hidden");
 		$("body").css("height", "100%");
