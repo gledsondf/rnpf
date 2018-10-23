@@ -48,7 +48,9 @@ $(".hangar2b,.hangarb,.fim").css("bottom",$terraGramaHn1-15+"px");
 
 $("#base").css("bottom",$terraGramaHn1-15+"px");
 $("#foguete").css("bottom",$terraGramaHn1-15+"px");
-$("#foguete-decola").css("bottom",$terraGramaHn1+"px");
+/*$("#foguete-decola").css("bottom",$terraGramaHn1+"px");
+*/
+/*$("#foguete-decola").css("bottom",30+"px");*/
 /*$("#nave").css("bottom",$terraGramaHn1+"px");
 */
 
@@ -258,6 +260,7 @@ function decolar(valor){
 			$("body").stop().animate({backgroundPositionY:"1500px"},5000, function(){
 				$("#foguete-decola").html("<div id='foguete-turbo' class='atencao'></div>");
 				$("#foguete-decola").addClass("orbita");
+				$("#engloba-nave").addClass("abduzido");
 
 			});
 			},5000);
