@@ -63,6 +63,9 @@ $("#englobaAV1").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
 $("#englobaAV2").css("left",$tamanhoTelaW*3.1+"px");
 $("#englobaAV2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
 
+//$("#bb8").css("bottom",$terraGramaHn1);
+$("#engloba-espaco").css("bottom",$terraGramaHn1);
+
 //ajusta o personagem ao piso
 function comecaJuca() { $("#juca").css("bottom",$terraGramaHn1); }
 comecaJuca();
@@ -288,7 +291,9 @@ $("#foguete-decola").on("click","div#foguete-turbo",function(){
 	$("#camada-horizontal-2").stop().animate({top:"76%"},3000, function(){
 		$("#foguete-decola").addClass("para");
 		$("body").css("overflow", "hidden");
-		setInterval(function(){$("#juca").removeClass("hidden terra");},5000);
+		setInterval(function(){$("#juca").removeClass("hidden terra");$("#engloba-espaco").addClass("movebb8");},5000);
+		
+
 		
 
 	});
