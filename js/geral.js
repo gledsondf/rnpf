@@ -48,11 +48,6 @@ $(".hangar2b,.hangarb,.fim").css("bottom",$terraGramaHn1-15+"px");
 
 $("#base").css("bottom",$terraGramaHn1-15+"px");
 $("#foguete").css("bottom",$terraGramaHn1-15+"px");
-/*$("#foguete-decola").css("bottom",$terraGramaHn1+"px");
-*/
-/*$("#foguete-decola").css("bottom",30+"px");*/
-/*$("#nave").css("bottom",$terraGramaHn1+"px");
-*/
 
 $("#englobaAV0").css("left",$tamanhoTelaW*5+"px");
 $("#englobaAV0").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
@@ -63,8 +58,7 @@ $("#englobaAV1").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
 $("#englobaAV2").css("left",$tamanhoTelaW*3.1+"px");
 $("#englobaAV2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
 
-//$("#bb8").css("bottom",$terraGramaHn1);
-$("#engloba-espaco").css("bottom",$terraGramaHn1);
+//$("#engloba-espaco").css("bottom",$terraGramaHn1);
 
 //ajusta o personagem ao piso
 function comecaJuca() { $("#juca").css("bottom",$terraGramaHn1); }
@@ -171,8 +165,9 @@ function apenasNumeros(string)
 	 var $alvofoguete = $("#foguete");
 	 $alvofoguete.each(function(){
 		 var $posicaofoguete = $(this).offset().left;
+		 var $posicaoPisoFinal =  $("#camada-horizontal-1").css("left");
 
-		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-100)){
+		  if(($posicaoJuca > $posicaofoguete) && ($posicaofoguete > $posicaoJuca-150)){
 		 	  $("#juca.terra").addClass("pilota-foguete");
 			  $("#controle-lancamento").removeClass("esconde-visibilidade");
               $ultimaPosicaoPiso = $posicaoPisoFinal;
@@ -192,7 +187,6 @@ function apenasNumeros(string)
 		 if (($posicaoJuca > $posicaoPlaca) && ($posicaoPlaca > $posicaoJuca-100)) {
 		 	 $ultimaPosicaoPiso = $posicaoPisoFinal;
 	         $finalScroll = $posScroll;
-		 	 console.log("posJ ="+$posicaoJuca+" -- piso =" +$posicaoPisoFinal+"--- scroll ="+$finalScroll);
 		 }
 
 		 if ($posicaoJuca > $posicaoPlaca+100) {
@@ -288,14 +282,10 @@ $("#foguete-decola").on("click","div#foguete-turbo",function(){
 	$("#foguete-decola").addClass("start");
 	$("#foguete-decola").removeClass("orbita");
 	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){$("#foguete-decola").removeClass("start");});
-	$("#camada-horizontal-2").stop().animate({top:"76%"},3000, function(){
+	$("#camada-horizontal-2").stop().animate({top:"19%"},3000, function(){
 		$("#foguete-decola").addClass("para");
 		$("body").css("overflow", "hidden");
-		setInterval(function(){$("#juca").removeClass("hidden terra");$("#engloba-espaco").addClass("movebb8");},5000);
-		
-
-		
-
+		setInterval(function(){$("#juca").removeClass("hidden terra");$("#engloba-espaco").addClass("movebb8"); $("#camada-horizontal-2").addClass("sobe")},5000);
 	});
 
 });

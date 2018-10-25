@@ -58,15 +58,20 @@ body {
 
 }
 #camada-horizontal-2 {
-	top:-90px;
+	top:-705px;
 	width:18000px;
-	height: 90px;
+	height: 705px;
 	position: absolute;
 	z-index: 2000;
 }
 
 .fundoSpacial {
+	height: 90px;
+	width: 100%;
+	position: absolute;
+	bottom:0;
 	background-image: url(../img/fundoSpacial.png) !important;
+	z-index: 2001
 
 }
 #planoFundo3 {
@@ -110,6 +115,7 @@ body {
     margin-top: 60px;
     color: #fff;
     font-weight: 700;
+    text-shadow: #000 2px 5px 8px;
 }
 .grama {
 	width: 100%;
@@ -362,7 +368,8 @@ body {
 #foguete-decola.para {
 		background-position-y: 0;
 		background-position-x: 0;
-		animation-name:para;
+		animation-name:para,novo-decola;
+		animation-delay:0s,6s; 
 		animation-duration:4s;
 		animation-iteration-count:1;
 		animation-timing-function: ease-in-out;
@@ -373,7 +380,11 @@ body {
 		bottom: 5%;
 	}
 }
-
+@keyframes novo-decola {
+	100% {
+		bottom:-50%;
+	}
+}
 #foguete-turbo {
 	height: 40px;
 	width: 40px;
@@ -524,6 +535,60 @@ body {
 
 }
 
+#juca.pilota-foguete.jet {
+	background-image: url(../img/astronauta.png) !important;
+	animation-name:play-jet,play-jet-sobe2,play-jet-some;
+	animation-delay: 5s,5s,11s;
+	animation-duration:1s,10s,10s;
+	animation-iteration-count: infinite,1,1;
+	animation-timing-function: steps(3),ease-in-out;
+	animation-fill-mode: none,forwards,forwards;
+
+}
+
+#camada-horizontal-2.sobe {
+	animation-name:play-jet-sobenovo;
+	animation-delay: 5s;
+	animation-duration:10s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+@keyframes play-jet {
+	0%{background-position-x:-330px; }
+	100% {background-position-x:-660px;}
+}
+@keyframes play-jet-sobe {
+
+	80%{z-index: 1999;}
+	100%{bottom:650px;border-radius:50px;z-index: 1999;}
+ }
+ @keyframes play-jet-sobenovo {
+
+	100%{top:59%;}
+ }
+@keyframes play-jet-some  {
+	0%{
+	 background-position-x:-220px; 	
+	 background-color: #fff;
+	 border-radius:50px;
+	 opacity:1;
+	 z-index: 1999;
+	}
+	97%{
+	 background-position-x:-220px;	
+	 background-color: #fff;
+	 border-radius:50px;
+	 opacity:0;
+ 	 z-index: 1999;
+
+	}
+	100%{
+		background-image: none;
+		border-radius:50px;
+        z-index: 1999;
+	}
+}
 #juca.corre {
 		background-position-x: -200px;
 		animation-name:play;
@@ -538,11 +603,13 @@ body {
 	height: 130px;
 	z-index: 2001;
 	display: none;
+	bottom: 50px;
+    z-index: 2003;
 }
 #engloba-espaco.movebb8 {
 	display: block;
 	animation-name:engloba-carro-play;
-	animation-duration:10s;
+	animation-duration:15s;
 	animation-delay: 0s;
 	animation-iteration-count:1;
 	animation-timing-function: ease-in-out;
@@ -600,11 +667,22 @@ body {
 	}
 }
 
+#basetransporte {
+    width: 370px;
+    height: 640px;
+    position: absolute;
+    bottom:65px;
+    left: 27.5em;
+    background-image: url(../img/basetransporte.png);
+    z-index: 2002;
+}
+
+
 #juca.pilota-aviao, .aviaoPropaganda {
-		animation-name:play-aviao;
-		animation-duration:1s;
-		animation-iteration-count: infinite;
-		animation-timing-function: steps(5);
+	animation-name:play-aviao;
+	animation-duration:1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps(5);
 }
 
 [data="aviao-propaganda"] {
@@ -714,6 +792,12 @@ body {
 		bottom:0%;
 	}
 
+	#basetransporte {
+		left: 0;
+	}
+	#camada-horizontal-2 {
+		top: 0px;
+	}
 	@keyframes orbita {
 			0% {
 				bottom: 0%;
