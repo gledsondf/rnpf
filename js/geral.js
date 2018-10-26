@@ -1,5 +1,11 @@
 $(document).ready(function(){
-	
+
+    $(window).load(function () {
+        // Quando a página estiver totalmente carregada, remove o id
+        $('#divCarregando').fadeOut('slow');
+        $("body").css("overflow","auto");
+/*			$("#divCarregando").hide();
+*/    });
 
 $tamanhoView = screen.height;
 
@@ -16,6 +22,8 @@ $(".tela-h").css("height",$tamanhoTelaH+"px");
 var $terraGramaHn1 = $tamanhoTelaH*0.2;
 var $terraGramaHn2 = $tamanhoTelaH*0.4;
 var $terraGramaHn3 = $tamanhoTelaH*0.6;
+
+var $baseEspacialnova =$terraGramaHn1-41+"px";
 
 $("#terra-grama0").css("height",$terraGramaHn1+"px");
 $("#terra-grama0").css("width",$tamanhoTelaW*20+"px");
@@ -124,6 +132,8 @@ function animeScroll(){
 	$alvoAviao.each(function(){
 		var $posicaoAviao = $(this).offset().left;
 
+
+
 		if ($posicaoJuca > $posicaoAviao) {
 			$("#juca").removeClass("caminhando");
 			$("#juca").addClass("pilota-aviao");
@@ -210,13 +220,23 @@ var $countCorre = 0;
 
 function correr(valor){
 	//valor será verdadeiro ou falso, se scroll direcão baixo verdadeiro
-	
+	if (valor) {
+		console.log("verdadeiro");
+		$("#juca.pilota-aviao").addClass("ida");
+		$("#juca.pilota-aviao").removeClass("volta");
+
+	}else{
+		console.log("falso");
+		$("#juca.pilota-aviao").addClass("volta");
+		$("#juca.pilota-aviao").removeClass("ida");
+	}
 	if($countCorre<=12){
 		//tamanho dos frames
 		var $n = -110;
 		if (valor) {
 			$("#juca.caminhando").css("background-image", "url(img/novo.png)");
 			$("#juca.caminhando").css("backgroundPositionX",""+$n*$countCorre+"px");
+
 
 		}else {
 			$("#juca.caminhando").css("background-image", "url(img/novoV.png)");
@@ -282,10 +302,10 @@ $("#foguete-decola").on("click","div#foguete-turbo",function(){
 	$("#foguete-decola").addClass("start");
 	$("#foguete-decola").removeClass("orbita");
 	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){$("#foguete-decola").removeClass("start");});
-	$("#camada-horizontal-2").stop().animate({top:"19%"},3000, function(){
+	$("#camada-horizontal-2").stop().animate({bottom:$baseEspacialnova},3000, function(){
 		$("#foguete-decola").addClass("para");
 		$("body").css("overflow", "hidden");
-		setInterval(function(){$("#juca").removeClass("hidden terra");$("#engloba-espaco").addClass("movebb8"); $("#camada-horizontal-2").addClass("sobe")},5000);
+		setInterval(function(){$("#juca").removeClass("hidden terra");$("#juca").addClass("jet");$("#engloba-espaco").addClass("movebb8"); $("#camada-horizontal-2").addClass("sobe"); $("#rnpf-texto").addClass("mostraTexto")},5000);
 	});
 
 });
