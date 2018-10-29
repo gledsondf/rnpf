@@ -1,0 +1,189 @@
+/*
+xxxxxxxxxxxxxxxxxxxxxxxx Author
+Gledson luciano da silva
+outubro 2018
+
+*/
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	background: #fff;
+	color:#fff;
+	font-size: 1em;
+}
+
+@font-face {
+    font-family: game;
+    src: url(VCR_OSD_MONO_1.001.ttf);
+}
+section#apresentacao {
+	margin-top: 40px;
+}
+section {
+	border:1px solid red;
+}
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx MENU*/
+
+#menu {
+	background:rgba(255, 255, 255, 0.95);
+	border-bottom: 1px solid #d8d8d8;
+	font-family: raleway;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	height: 40px;
+	padding: 10px 0 0 0;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+
+}
+
+#menu ul li {
+	display: inline-block;
+	float: left;
+	list-style-type: none;
+	margin: 0 24px;
+}
+
+#menu a{
+	color:#777;
+	display: inline-block;
+	text-decoration: none;
+}
+
+#menu a:hover{
+	border-bottom: 4px solid #8cc63e;
+}
+
+.float-right {
+	float: right !important;
+}
+.lista-menu{
+	max-width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx apresentacao*/
+article {
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+#apresentacao-jaleco {
+	width: 130px;
+	height:280px;
+	background: url("../img/profissionalJaleco.png"); 
+}
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tabela*/
+
+table {
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+	border-collapse:collapse;
+	font-family:helvetica;
+	font-size: 0.9em;
+
+}
+table td, table th {
+	border:1px solid #fff;
+	padding: 5px;
+}
+
+table caption {
+	background: #21324C;
+	color:#3B8686;
+	padding: 10px 5px;
+	font-weight: bold;
+
+}
+table thead th {
+	background: #0B486B;
+	color: #ffffff;
+	font-weight: 700;
+
+}
+
+table tr {
+	color: #0B486B;
+}
+
+table tr:nth-child(odd) {
+background: #AABFCB;
+}
+table tr:nth-child(even) {
+	background: #CEDAE1;
+}
+
+table tr td:first-child {
+	width: 5%;
+	font-weight: bold;
+}
+table tr:hover {
+	background: #799AAE;
+}
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx rodape*/
+#rodape  {
+	text-align: center;
+	background: #f1c40f;
+	background: #8cc63e;
+
+	padding:10px;
+}
+#rodape img {
+	margin: 0 auto;
+}
+
+#rodape .setaTopo {
+	font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+
+    display: block;
+}
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx responsive*/
+.col-col {width: 99.99999%;}
+.col-metade {width: 49.99999%;}
+.col-terco {width: 33.33333% ;}
+.col-2terco {width: 66.66666%;}
+.col-quarto {width: 24.99999%;}
+.col-3quarto {width: 74.99999%;}
+
+.col-1 { width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%; }
+.col-5 {width: 41.66%; }
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%; }
+
+[class*="col-"] {
+	float: left;
+}
+
+.row::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.no-float {
+	float: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+	[class*="col-"] {
+		width: 100%;
+	}
+}
