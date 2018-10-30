@@ -13,18 +13,24 @@ html {
 	background: #fff;
 	color:#fff;
 	font-size: 1em;
+	font-family: helvetica;
+	line-height: 1.5em;
 }
 
 @font-face {
     font-family: game;
     src: url(VCR_OSD_MONO_1.001.ttf);
 }
-section#apresentacao {
-	margin-top: 40px;
+
+@font-face {
+	font-family: ralewaySemiBold;
+	src:url(Raleway-SemiBold.ttf);
 }
-section {
-	border:1px solid red;
+@font-face {
+	font-family: raleway;
+	src:url(Raleway-Regular.ttf);
 }
+
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx MENU*/
 
 #menu {
@@ -67,23 +73,101 @@ section {
 	overflow: hidden;
 }
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx apresentacao*/
+section#apresentacao {
+	margin-top: 40px;
+	background: #22A9A7;
+	background: #7098A8;
+	color: #f1c40f;
+	text-shadow: 0px 2px 2px #777;
+	font-size: 1.5em;
+}
+h1 {
+	margin-bottom: 15px;
+	text-align: center;
+	font-size: 2em;
+    text-shadow: 0px 2px 2px #777;
+    padding-bottom: 15px;
+    border-bottom: 2px solid;
+    border-color: rgba(255,255,255,0.19);
+    font-family: game;
+}
+h2 {
+	margin: 10px 0;
+	font-family: game;
+}
 article {
-	margin: 0 auto;
+	margin: 15% auto;
 	max-width: 1024px;
 }
 
-#apresentacao-jaleco {
-	width: 130px;
-	height:280px;
-	background: url("../img/profissionalJaleco.png"); 
+
+.conteudo {
+	padding: 10px;
+	font-family: helvetica;
 }
 
 
+section#tempo {
+	background: #01223a;
+	color:#f1c40f; 
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tempo*/
+#tempo-pensamento {
+	background:#fff;
+	border-radius: 10px;
+	height: 300px;
+}
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tabela*/
+.engloba-tabela {
+	height: 0;
+	display: none;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.engloba-tabela.show {
+	height: 100%;
+	animation-name: mostraTabela;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes mostraTabela {
+	0% {
+		height: 0px;
+	}
+	100% {
+		height: 100%;
+		opacity: 1;
+	}
+}
+.engloba-tabela {
+	margin: 20px 0;
+}
+section#tabelas {
+	background: #3B8686;
+	color: #f1c40f;
+}
+
+#tabelas a {
+    text-decoration: none;
+    color: #142133;
+    font-weight: bold;
+}
+#tabelas a:hover {
+	color:#8cc63e;
+}
+
+section#tabelas article {
+/*	margin-top: 40px !important; 
+*/}
 
 table {
 	margin: 0 auto;
-	width: 80%;
+	width: 95%;
 	text-align: center;
 	border-collapse:collapse;
 	font-family:helvetica;
@@ -96,7 +180,7 @@ table td, table th {
 }
 
 table caption {
-	background: #21324C;
+	background: #142133;
 	color:#3B8686;
 	padding: 10px 5px;
 	font-weight: bold;
@@ -127,6 +211,13 @@ table tr td:first-child {
 table tr:hover {
 	background: #799AAE;
 }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx sistema*/
+section#sistema {
+	background: #22A9A7;
+	color: #f1c40f;
+}	
+
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx rodape*/
 #rodape  {
 	text-align: center;
@@ -185,5 +276,16 @@ table tr:hover {
 @media only screen and (max-width: 768px) {
 	[class*="col-"] {
 		width: 100%;
+	}
+
+	img {
+		width: 98%;
+	}
+
+	.engloba-tabela {
+		overflow: scroll;
+	}
+	#apresentacao {
+		height: 100% !important;
 	}
 }
