@@ -12,8 +12,9 @@
 		<div id="menu" class="col-col row">
 			<nav>
 				<ul class="lista-menu">
-					<li>nome 1</li>
-					<li>nome 2</li>
+					<li><a href="#tabelas" title="Tabela RNPF-2018">RNPF-2018</a></li>
+					<li><a href="#sistema" title="Pesquisa">Pesquisa</a></li>
+					<li><a href="index.html" title="Voltar para o início jogo">Jogo</a></li>
 				</ul>
 			</nav>
 		</div>

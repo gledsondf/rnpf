@@ -109,14 +109,42 @@ article {
 
 section#tempo {
 	background: #01223a;
-	color:#f1c40f; 
+	color:#f1c40f;
+}
+
+#tempo-jaleco img {
+	float: right;
 }
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tempo*/
 #tempo-pensamento {
+    float: none;
+    margin: 0 auto;
+    padding: 50px;	
 	background:#fff;
-	border-radius: 10px;
-	height: 300px;
+	border-radius:100px 100px 100px 0;
+	height:300px;
+	width: 300px;
+}
+.pensamento {
+	height: 200px;
+	width: 200px;
+	background-position: 0px;
+	background-image: url("../img/tempojornada.png");
+	animation-name: play-pensamento;
+	animation-duration:10s;
+	animation-timing-function:steps(8); 
+	animation-fill-mode:forwards;
+	animation-iteration-count: infinite;
+}
+
+@keyframes play-pensamento {
+	0% {
+		background-position: 0px;
+	}
+	100% {
+		background-position: 1600px;
+	}
 }
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tabela*/
 .engloba-tabela {
@@ -152,15 +180,20 @@ section#tabelas {
 	color: #f1c40f;
 }
 
-#tabelas a {
+#tabelas a, a.pesquisa {
     text-decoration: none;
     color: #142133;
     font-weight: bold;
 }
-#tabelas a:hover {
+#tabelas a:hover, a.pesquisa:hover {
 	color:#8cc63e;
 }
 
+a.pesquisa, #tabelas a {
+	margin: 20px;
+	text-align: center !important;
+	display: block;
+}
 section#tabelas article {
 /*	margin-top: 40px !important; 
 */}
@@ -278,8 +311,8 @@ section#sistema {
 		width: 100%;
 	}
 
-	img {
-		width: 98%;
+	#apresentacao {
+		text-align: center;
 	}
 
 	.engloba-tabela {

@@ -4,16 +4,15 @@ $(document).ready(function(){
         // Quando a página estiver totalmente carregada, remove o id
         $('#divCarregando').fadeOut('slow');
         $("body").css("overflow","auto");
-/*			$("#divCarregando").hide();
-*/    });
+        $("body").scrollTop(2);
+    });
 
 $tamanhoView = screen.height;
 
 
 var $tamanhoTelaH = $tamanhoView;
 //pega a largura e altura da página
-//var $tamanhoTelaH = $(window).height();
-//var $tamanhoTelaW = $(window).width();
+
 var $tamanhoTelaW = 1920;
 //deixa a tela principal do tamanho do view
 $(".tela-h").css("height",$tamanhoTelaH+"px");
@@ -66,8 +65,6 @@ $("#englobaAV1").css("top",$tamanhoTelaH-$terraGramaHn3+"px");
 $("#englobaAV2").css("left",$tamanhoTelaW*3.1+"px");
 $("#englobaAV2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
 
-//$("#engloba-espaco").css("bottom",$terraGramaHn1);
-
 //ajusta o personagem ao piso
 function comecaJuca() { $("#juca").css("bottom",$terraGramaHn1); }
 comecaJuca();
@@ -91,6 +88,16 @@ function animeScroll(){
 
 	//detectar colisão nível
 	//============================================================== funcao pegar obstaculos nível
+
+		var $alvoTirafrase = $("#terra-grama2").offset().left;
+
+		if ($posicaoJuca > $alvoTirafrase) {
+			$("#tutorial").addClass("hidden");
+		}else{
+			$("#tutorial").removeClass("hidden");
+		}
+
+
 	var $alvoNivel = $(".nivel");
 	var $contaNivel = 0;
 

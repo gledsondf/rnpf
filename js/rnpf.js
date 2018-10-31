@@ -12,7 +12,7 @@ $(".linkTabela").on("click",function(){
 
 //rolagem
 // Add smooth scrolling to all links in navbar + footer link
-$("a[href='#apresentacao']").on('click', function(event) {
+$("a[href='#apresentacao'],a[href='#tabelas'],a[href='#sistema']").on('click', function(event) {
 
 
 // Prevent default anchor click behavior
