@@ -2,7 +2,7 @@
 	<article class="row">
 		<div id="apresentacao-engloba" class="col-col row">
 			<header>
-				<h1 title="Referencial Nacional de Procedimentos Fisioterapêuticos">RNPF</h1>
+				<h1 title="Referencial Nacional - RNPF/RNHTO">Referencial Nacional - RNPF/RNHTO</h1>
 			</header>
 			<div id="apresentacao-jaleco" class="col-4"><img src="img/profissionalJaleco.png"></div>
 			<div id="apresentacao-conteudo" class="col-8 conteudo row">

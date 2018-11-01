@@ -5,14 +5,20 @@ $(document).ready(function(){
 
 $(".linkTabela").on("click",function(){
 	
+	var $valor = $(this).attr("data");
 
-	$('div.engloba-tabela').addClass("show").toggle();
+	console.log($valor);
+	if ($valor=="fisio") {
+		$('div.engloba-tabela-fisio').addClass("show").toggle();
+	}else if($valor == "to"){
+		$('div.engloba-tabela-to').addClass("show").toggle();
+	}
 });
 
 
 //rolagem
 // Add smooth scrolling to all links in navbar + footer link
-$("a[href='#apresentacao'],a[href='#tabelas'],a[href='#sistema']").on('click', function(event) {
+$("a[href='#apresentacao'],a[href='#tabelas-fisio'],a[href='#tabelas-to'],a[href='#sistema']").on('click', function(event) {
 
 
 // Prevent default anchor click behavior

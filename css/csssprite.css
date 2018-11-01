@@ -145,7 +145,8 @@ body {
 #aviao {
 	width: 200px;
 	height: 175px;
-	background-image: url(../img/aviao.png);
+	background-image: url(../img/coffitinho.png);
+	background-position-y:-315px; 
 	position: absolute;
 
 }
@@ -185,7 +186,8 @@ body {
 	height: 175px;
 	left: 1000px;
 	border:1px solid red;
-	background-image: url(../img/aviao.png);
+	background-image: url(../img/coffitinho.png);
+	background-position-y:-315px; 
 	position: absolute;
 
 }
@@ -203,10 +205,10 @@ body {
 	width: 320px;
 	height: 400px;
 	left: 4080px;
-	background-image: url(../img/fogueteparado.png);
+	background-image: url(../img/coffitinho.png);
     background-repeat: no-repeat;
-    background-position-y:90px;
-    background-position-x:-960px;
+    background-position-y:-750px;
+    background-position-x:0px;
 	position: absolute;
 
 }
@@ -217,8 +219,8 @@ body {
 	height: 400px;
 	z-index: 1999;
     display: none;
-    background-image: url(../img/fogueteparado.png);
-    background-position-y:70px; 
+    background-image: url(../img/coffitinho.png);
+    background-position-y:-750px; 
     bottom:10%;
 }
 
@@ -340,12 +342,13 @@ body {
 	height: 400px;
 	z-index: 1999;
     display: none;
-    background-image: url(../img/fogueteparado.png);
+    background-image: url(../img/coffitinho.png);
+    background-position-y:-750px; 
 }
 
 #foguete-decola.start {
-		background-position-x: -320px;
-		background-position-y: 0;
+		background-position-x: -640px;
+		background-position-y: -750px;
 		animation-name:decolaFoguete;
 		animation-duration:1s;
 		animation-iteration-count:infinite;
@@ -355,12 +358,13 @@ body {
 
 @keyframes decolaFoguete {
 		100% {
-			background-position-x: -960px;
+			background-position-x: -1280px;
+			background-position-y: -750px;
 		}
 }
 
 #foguete-decola.orbita {
-		background-position-y: 0;
+		background-position-y: -750px;
 		background-position-x: 0;
 		animation-name:orbita;
 		animation-duration:10s;
@@ -385,8 +389,8 @@ body {
 }
 
 #foguete-decola.para {
-		background-position-y: 0;
-		background-position-x: 0;
+		background-position-y: -750px;
+		background-position-x: -320px;
 		animation-name:para,novo-decola;
 		animation-delay:0s,6s; 
 		animation-duration:4s;
@@ -396,8 +400,9 @@ body {
 }
 @keyframes para {
 	100% {
-		bottom: 5%;
+		bottom: 10%;
 	}
+
 }
 @keyframes novo-decola {
 	100% {
@@ -408,7 +413,7 @@ body {
 	height: 40px;
 	width: 40px;
 	position: absolute;
-	bottom: 200px;
+	bottom: 140px;
 	left: 161px;
 	background-image: url(../img/botao-foguete.png);
 	background-position-x:-40px; 
@@ -452,21 +457,22 @@ body {
 	}
 }
 
-#foguete.inginicao-start {
-		animation-name:liga,inginicao;
-		background-position-x: -960px;
-		background-position-y: 0px;
+#foguete.ignicao-start {
+		animation-name:liga,ignicao;
+		background-position-x: -1280px;
+		background-position-y: -750px;
 		animation-duration:2s,1s;
 		animation-iteration-count:1,infinite;
-		animation-timing-function:ease-in, steps(2);
+		animation-timing-function:ease-in, steps(3);
 		animation-fill-mode: forwards;
 }	
 
-@keyframes inginicao {
-		100% {background-position-x:-1600px;}
+@keyframes ignicao {
+		100% {background-position-x:-2240px;
+		}
 }
 @keyframes liga {
-		10% {background-position-y:0px;}
+		10% {background-position-y:-750px;}
 }
 
 
@@ -537,16 +543,22 @@ body {
 	left:30%;
 	width: 110px;
 	height: 100px;
-    background-image: url(../img/novo.png);
+    background-image: url(../img/coffitinho.png);
     z-index: 2001;
 }
 
+#juca.caminhando.voltaCoffitinho {
+    background-image: url(../img/coffitinho.png);
+    background-position-y:-100px; 
+
+}
 
 
 #juca.pilota-aviao {
-	background-image: url(../img/aviao.png) !important;
-	width: 200px !important;
-	height: 175px !important;
+	background-image: url(../img/coffitinho.png) !important;
+	background-position-y:-300px; 
+	width: 199px !important;
+	height: 130px !important;
 }
 
 
@@ -559,7 +571,7 @@ body {
 
 @keyframes play-aviao {
 		0% {
-			background-position-x: -200px;
+			background-position-x: -199px;
 		}
 		100% {
 			background-position-x: -1200px;
@@ -567,7 +579,8 @@ body {
 }
 
 #juca.pilota-aviao.volta {
-	background-image: url(../img/aviaov.png) !important;
+	background-image: url(../img/coffitinho.png) !important;
+	background-position-y:-450px !important; 
 	animation-name:play-aviao;
 	animation-duration:1s;
 	animation-iteration-count: infinite;
@@ -575,11 +588,22 @@ body {
 }
 
 #juca.pilota-foguete {
-	background-image: url(../img/astronauta.png) !important;
+	background-image: url(../img/coffitinho.png) !important;
+	background-position-x:0px !important;
+	background-position-y:-200px !important;  
 
 }
 
-
+#juca.pilota-foguete.terra {
+	animation-name: play-pilotoTerra;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps(3);
+}
+@keyframes play-pilotoTerra{
+	0%{background-position-x:0; }
+	100%{background-position-x:-330px; }
+}
 #rnpf-texto {
      display: none; 
     width: 100%;
@@ -608,6 +632,7 @@ body {
 #rnpf-conteudo {
 	width: 960px;
 	margin: 20% auto;
+	margin: 0 auto;
 	font-size: 1.5em;
 	line-height: 1.5em;
 	text-align: justify;
@@ -645,7 +670,9 @@ body {
 	100%{bottom:-27%;}
  }
 #juca.pilota-foguete.jet {
-	background-image: url(../img/astronauta.png) !important;
+	background-image: url(../img/coffitinho.png) !important;
+	background-position-x:0px !important;
+	background-position-y:-200px !important;  	
 	animation-name:play-jet,play-jet-some;
 	animation-delay: 5s,10s;
 	animation-duration:1s,14s;
@@ -703,8 +730,9 @@ body {
 	top: 50%;
     border: 1px solid yellow;
 
-	background-image: url(../img/novo.png);
+	background-image: url(../img/coffitinho.png);
 	background-position-x: -200px;
+	background-position-y: 0px;
 	animation-name:play;
 	animation-duration:1s;
 	animation-iteration-count: infinite;
@@ -824,16 +852,17 @@ body {
 }
 
 [data="aviao-propaganda"] {
-	width: 200px;
-	height: 175px;
-	background-image: url(../img/aviaoPropaganda.png);
-	background-position-x:-200px; 
+	width: 199px;
+	height: 150px;
+	background-image: url(../img/coffitinho.png);
+	background-position-x:-199px; 
+	background-position-y:-600px; 
 	position: relative;
 	float: left;
 }
 
 .engloba-aviaoPropaganda {
-    height: 300px;
+    height: 250px;
     position: absolute;
     width: 802px;
 }
@@ -843,7 +872,7 @@ body {
 	height: 100px;
 	width: 600px;
 	float: left;
-	top: 75px;
+	top: 25px;
 	position: relative;
 	color: #000;
 	text-align: center;

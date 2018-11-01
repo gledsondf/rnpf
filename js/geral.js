@@ -241,12 +241,12 @@ function correr(valor){
 		//tamanho dos frames
 		var $n = -110;
 		if (valor) {
-			$("#juca.caminhando").css("background-image", "url(img/novo.png)");
+			$("#juca.caminhando").removeClass("voltaCoffitinho");
 			$("#juca.caminhando").css("backgroundPositionX",""+$n*$countCorre+"px");
 
 
 		}else {
-			$("#juca.caminhando").css("background-image", "url(img/novoV.png)");
+			$("#juca.caminhando").addClass("voltaCoffitinho");
 			$("#juca.caminhando").css("backgroundPositionX",""+$n*$countCorre+"px");
 		}
 
@@ -268,7 +268,7 @@ var $animaDecola;
 function decolar(valor){
 	 $valor = parseInt(valor);
 	if ($valor) {
-		$("#foguete").addClass("inginicao-start");
+		$("#foguete").addClass("ignicao-start");
 	$("#juca").addClass("hidden");
 		$("#clock-disparar").addClass("start");
 		$("body").css("overflow", "hidden");
@@ -277,7 +277,7 @@ function decolar(valor){
 	 $animaDecola =	setTimeout(function(){
  			$("#camada-horizontal-1.animar").stop().animate({top:'2000px'},2000,function(){});
  			$("#foguete").addClass("hidden");
- 			$("#foguete").removeClass("inginicao-start");
+ 			$("#foguete").removeClass("ignicao-start");
  			$("#foguete-decola").addClass("show");
  			$("#foguete-decola").addClass("start");
 			
@@ -291,7 +291,7 @@ function decolar(valor){
 
 	}else {
 		$("#foguete-decola").removeClass("show");
-		$("#foguete").removeClass("inginicao-start");
+		$("#foguete").removeClass("ignicao-start");
 		$("#clock-disparar").removeClass("start");
 	 	$("#juca").removeClass("hidden");
 		$("body").css("overflow", "auto");
@@ -304,8 +304,7 @@ function decolar(valor){
 
 $("#foguete-decola").on("click","div#foguete-turbo",function(){
 	 
-	$("#foguete-turbo").addClass("active");
-	$("#foguete-turbo").removeClass("atencao");
+	$("#foguete-turbo").addClass("hidden");
 	$("#foguete-decola").addClass("start");
 	$("#foguete-decola").removeClass("orbita");
 	$("body").stop().animate({backgroundPositionY:"4000px"},3000, function(){$("#foguete-decola").removeClass("start");});
