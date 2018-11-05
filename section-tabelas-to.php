@@ -11,8 +11,8 @@
 			<p>Lembre-se: o valor tem reajuste anual!</p>
 			<p>Leia a Resolução-COFFITO nº 482 e saiba mais!</p>
 			<p><a href="#engloba-tabela-to" class="linkTabela" data="to" title="Clique para ver o RNHTO">Veja o RNHTO</a></p>
-			<div class="engloba-tabela-to">
-				<?php include ("tabelas-fisio.php")	?>
+			<div id="engloba-tabela-to" class="engloba-tabela-to">
+					<?php include ("tabelas-to.php")	?>
 			</div>
 		</div>
 	</article>

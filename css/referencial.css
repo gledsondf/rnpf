@@ -200,7 +200,9 @@ a.pesquisa, #tabelas-fisio a, #tabelas-to a {
 	display: block;
 }
 
-
+table:first-child {
+	margin-top:80px !important; 
+}
 table {
 	margin: 0 auto;
 	width: 95%;

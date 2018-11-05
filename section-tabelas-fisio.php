@@ -11,7 +11,7 @@
 			<p>Lembre-se: o valor tem reajuste anual!</p>
 			<p>Leia a Resolução-COFFITO nº 482 e saiba mais!</p>
 			<p><a href="#engloba-tabela-fisio" class="linkTabela" data="fisio" title="Clique para ver o RNPF">Veja o RNPF</a></p>
-			<div class="engloba-tabela-fisio">
+			<div id="engloba-tabela-fisio" class="engloba-tabela-fisio">
 				<?php include ("tabelas-fisio.php")	?>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
   <!-- TABELA 1 - CAPÍTULO 1 -->
-  <table>
+  <table >
     <caption>CAPÍTULO I - CONSULTAS FISIOTERAPÊUTICAS</caption>
     <thead>
       <tr>

@@ -365,7 +365,7 @@ body {
 
 #foguete-decola.orbita {
 		background-position-y: -750px;
-		background-position-x: 0;
+		background-position-x: -320px;
 		animation-name:orbita;
 		animation-duration:10s;
 		animation-iteration-count:infinite;
@@ -413,7 +413,7 @@ body {
 	height: 40px;
 	width: 40px;
 	position: absolute;
-	bottom: 140px;
+	bottom: 210px;
 	left: 161px;
 	background-image: url(../img/botao-foguete.png);
 	background-position-x:-40px; 
@@ -948,7 +948,7 @@ body {
 
 	#rnpf-conteudo {
 		width: 90%;
-		font-size: 1.2em;
+		font-size: 1em;
 	}
 	#foguete-decola {
 		left: 9%;
