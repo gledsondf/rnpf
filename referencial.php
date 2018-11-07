@@ -19,11 +19,11 @@
 				</ul>
 			</nav>
 		</div>
-		<?php include_once ("section-apresentacao.php")  ?>
-		<?php include_once ("section-tempo.php")  ?>
-		<?php include_once ("section-tabelas-fisio.php")  ?>
-		<?php include_once ("section-tabelas-to.php")  ?>
-		<?php include_once ("section-sistema.php")  ?>
+		<?php include_once ("section-apresentacao.php") ?>
+		<?php include_once ("section-tempo.php") ?>
+		<?php include_once ("section-tabelas-fisio.php") ?>
+		<?php include_once ("section-tabelas-to.php") ?>
+		<?php include_once ("section-sistema.php") ?>
 
 		<section>
 			<div id="rodape" class="col-col row">
