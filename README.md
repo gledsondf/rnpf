@@ -6,7 +6,7 @@ O que destaco neste projeto é que eu o fiz como um desafio pessoal para mostrar
 
 Utilizei o html, css e javascript para criar animações e interações, respeitando a semântica das tags html combinadas com o poder dos animates CSS e javascript, usei a biblioteca Jquery para facilitar manipulação do javascript.
 
-Utilizei para a criação das imagens o illustrator.
+Utilizei para a criação das imagens o illustrator, deixei os arquivos fontes.
 
 ## Instalação
 Nesse projeto também utilizei o php, mais para facilitar a manipulação do código em vários pedaços.
