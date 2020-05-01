@@ -24,7 +24,6 @@
 		<?php include_once ("section-tabelas-fisio.php") ?>
 		<?php include_once ("section-tabelas-to.php") ?>
 		<?php include_once ("section-sistema.php") ?>
-
 		<section>
 			<div id="rodape" class="col-col row">
 				<div><a href="#apresentacao" class="setaTopo" title="Para o topo">&circ;</a></div>

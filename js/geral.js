@@ -9,7 +9,6 @@ $(document).ready(function(){
 
 $tamanhoView = screen.height;
 
-
 var $tamanhoTelaH = $tamanhoView;
 //pega a largura e altura da página
 
@@ -68,7 +67,6 @@ $("#englobaAV2").css("top",$tamanhoTelaH-$terraGramaHn2+"px");
 //ajusta o personagem ao piso
 function comecaJuca() { $("#juca").css("bottom",$terraGramaHn1); }
 comecaJuca();
-
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inicio anime scroll
 
@@ -356,7 +354,6 @@ $(document).scroll(function(){
 	$("#planoFundo2").css('backgroundPositionX',"-"+($posicaoScrollTopo*0.3)+'px');
 
 });
-
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx fim pegar posição do scroll
 

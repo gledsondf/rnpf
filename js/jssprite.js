@@ -9,8 +9,6 @@ if (
 
 }
 
-
-
 //pega a largura e altura da página
 
 var $tamanhoTelaH = $(window).height()+150;
@@ -224,37 +222,6 @@ $alvofoguete.each(function(){
  }else {
  	console.log("não passou");
  }
-/* if ($posicaoJuca > $posicaofoguete+250) {
-
-
- 	$("#juca").addClass("pilota-foguete");
- 	$(this).addClass("foguete-esconde");
-	$("#clock-disparar").addClass("start");*/
-/* 	$("body").css("overflow", "hidden");
-*/ 	/*setTimeout(function(){
- 	$("#camada-horizontal-1.animar").stop().animate({top:$posicaoScrollTopo+'px'},5000, function(){
- 		$("body").css("overflow", "auto");*/
-
- 	//	$("body").stop().animate({backgroundPositionY:$posicaoScrollTopo+"px"},100, function(){});
-/* 	});
- 		
- 	},5000);
-	$("#escuro").addClass("escurecer");
- 	$("body").css("backgroundPositionY",+$contar*300+"px");
- 	$("body").stop().animate({backgroundPositionY:$contar*3000+"px"},10,function(){});
-	$("#camada-horizontal-1").css("left",0);
-
- }else {
- 	$(this).removeClass("foguete-esconde");
-		$("body").css("backgroundPositionY",+$posicaoScrollTopo*1.5+"px");
-
-	$("#camada-horizontal-1.animar").stop().animate({top:0+'px'},100, function(){
-			$("#juca").removeClass("pilota-foguete");
-	 		$("#escuro").removeClass("escurecer");
-
-	});
-
- }*/
 
 
 });

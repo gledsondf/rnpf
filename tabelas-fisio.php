@@ -26,7 +26,7 @@
         <td>13106903</td>
         <td>Consulta Domiciliar</td>
         <td>150 CHF </td>
-        <td>R$ 84,00</td>
+        <td>R$ 84,00 </td>
       </tr>
     </tbody>
   </table>
@@ -213,7 +213,7 @@
       </tr>
       <tr>
         <td>13106932</td>
-        <td>Videonistagmoscopia (Vídeo Frenzel)</td>
+        <td>Videonistagmoscopia(Vídeo Frenzel)</td>
         <td>400 CHF</td>
         <td>R$ 224,00</td>
       </tr>

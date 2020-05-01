@@ -15,11 +15,9 @@ $(".linkTabela").on("click",function(){
 	}
 });
 
-
 //rolagem
 // Add smooth scrolling to all links in navbar + footer link
 $("a[href='#apresentacao'],a[href='#tabelas-fisio'],a[href='#tabelas-to'],a[href='#sistema']").on('click', function(event) {
-
 
 // Prevent default anchor click behavior
 event.preventDefault();
@@ -36,11 +34,5 @@ $('html, body').animate({
 window.location.hash = hash;
 });
 });
-
-
-
-
-
-
 
 });

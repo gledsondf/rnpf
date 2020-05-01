@@ -51,7 +51,7 @@
       </tr>
       <tr>
         <td>20.07.100-5</td>
-        <td>avaliação da acessibilidade/ergonomia no domicílio, creche, escola, empresa, espaços comunitários (***)</td>
+        <td>avaliação da acessibilidade/ergonomia no domicílio, creche, escola, empresa, espaços comunitários(***)</td>
         <td>234CHTO</td>
         <td>R$131,04</td>
       </tr>
